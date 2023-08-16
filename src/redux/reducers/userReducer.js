@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   data: {},
   error: {},
+  users: [],
 };
 
 // eslint-disable-next-line no-undef
@@ -16,6 +17,12 @@ export default userReducer = (state = initialState, {type, payload}) => {
       };
 
     case types.GET_LOGIN:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case types.GET_DETAIL_USER:
       return {
         ...state,
         loading: true,
@@ -41,6 +48,28 @@ export default userReducer = (state = initialState, {type, payload}) => {
         loading: false,
         data: {},
         error: {},
+      };
+
+    // GET LIST USET
+    case types.GET_LIST_USER:
+      return {
+        ...state,
+        loading: true,
+      };
+    case types.UPDATE_LIST_USER:
+      return {
+        ...state,
+        loading: false,
+        users:
+          payload?.page === 1
+            ? payload.data
+            : [...state.users, ...payload.data],
+      };
+    case types.UPDATE_LIST_USER_RESET:
+      return {
+        ...state,
+        loading: false,
+        users: [],
       };
 
     default:

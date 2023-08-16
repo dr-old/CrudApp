@@ -1,34 +1,30 @@
 import React from 'react';
 import {Image, TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
-import Feather from 'react-native-vector-icons/Feather';
-import moment from 'moment';
 
-const TileArticle = ({item, onClick, marginRight}) => {
+interface TileArticleProps {
+  item: {
+    id: number;
+    email: string;
+    last_name: string;
+    avatar: string;
+    first_name: string;
+  };
+  onClick: () => void;
+}
+
+const TileArticle: React.FC<TileArticleProps> = ({item, onClick}) => {
   return (
     <TouchableOpacity onPress={onClick} style={stylesCust.article}>
-      <Image source={{uri: item.image}} style={stylesCust.articleCard} />
+      <Image source={{uri: item.avatar}} style={stylesCust.articleCard} />
       <View style={stylesCust.articleBody}>
         <View style={stylesCust.articleCardText}>
           <Text style={[styles.h5()]} numberOfLines={2}>
-            {item.title}
+            {item.first_name + ' ' + item.last_name}
           </Text>
+          <Text style={[styles.p5(color.grey)]}>{item.email}</Text>
         </View>
-        <View style={stylesCust.articleCardBody}>
-          <View style={stylesCust.user}>
-            <Text
-              style={styles.textBase(11, color.tblack, 'textRegular', 'none')}>
-              by{' '}
-            </Text>
-            <Text style={[styles.p5()]}>Danni Ramdan</Text>
-          </View>
-          <Text style={[styles.p5(color.grey)]}>
-            {moment().format('DD MMM YYYY HH:mm')}
-          </Text>
-        </View>
-        <View style={stylesCust.category}>
-          <Text style={styles.p5(color.green4)}>{item.category}</Text>
-        </View>
+        {/* <Text style={[styles.p5(color.grey)]}>{item.id}</Text> */}
       </View>
     </TouchableOpacity>
   );
@@ -44,13 +40,16 @@ const stylesCust = StyleSheet.create({
     borderRadius: 15,
     marginBottom: 20,
     backgroundColor: color.white,
+    flexDirection: 'row',
   },
   articleBody: {flex: 1, padding: 15},
   articleCard: {
-    height: 100,
-    width: '100%',
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    height: 80,
+    width: 80,
+    borderRadius: 15,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 10,
     resizeMode: 'cover',
   },
   articleCardText: {

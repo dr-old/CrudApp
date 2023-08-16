@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, Platform} from 'react-native';
+import {View, Text} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {FormInput} from '../../../components/molecules';
 import {ButtonLabel, Divider, OptionLabel} from '../../../components/atoms';

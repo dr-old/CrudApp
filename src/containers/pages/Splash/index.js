@@ -1,16 +1,7 @@
-import React, {useState, useRef} from 'react';
-import {
-  View,
-  Image,
-  Text,
-  Platform,
-  Dimensions,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import React from 'react';
+import {View, Text} from 'react-native';
 import {color, styles} from '../../../utils/styles';
-import {BarHeader, SliderItem} from '../../../components/molecules';
-import {ButtonLabel, Divider} from '../../../components/atoms';
+import {BarHeader} from '../../../components/molecules';
 import stylesCust from './stylesCust';
 import useAction from './useAction';
 
@@ -23,11 +14,9 @@ const Splash = () => {
       <View style={stylesCust.page}>
         <View style={stylesCust.logoText}>
           {/* <Text style={styles.h1(color.bluep5, null, 'textLight')}>My</Text> */}
-          <Text style={styles.h1(color.green4, null, 'textMedium')}>
-            Uhamka
-          </Text>
+          <Text style={styles.h1(color.green4, null, 'textMedium')}>Crud</Text>
           <Text style={styles.textBase(30, color.green4, 'textLight', 'none')}>
-            Saving
+            App
           </Text>
         </View>
       </View>

@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
-import {ButtonIcon, Divider, InputText} from '../atoms';
+import {ButtonIcon, Divider} from '../atoms';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {helpers} from '../../utils';
 
 function NavHome({
   title,
@@ -18,7 +17,7 @@ function NavHome({
   const [isFocus, setFocus] = useState(null);
 
   return (
-    <View style={{marginHorizontal: 30}}>
+    <View style={{height: 150}}>
       <View style={stylesCust.header}>
         <View style={stylesCust.headerContent}>
           <View style={stylesCust.imageInit}>
@@ -109,7 +108,7 @@ const stylesCust = StyleSheet.create({
     height: 40,
     flexDirection: 'row',
     // marginHorizontal: 30,
-    // marginBottom: 30,
+    marginBottom: 30,
   },
   searchInput: borderColor => ({
     borderWidth: 1,
@@ -122,7 +121,7 @@ const stylesCust = StyleSheet.create({
     alignItems: 'center',
   }),
   header: {
-    // backgroundColor: color.bluep5,
+    flex: 1,
     // alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 20,

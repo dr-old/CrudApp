@@ -1,9 +1,8 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {showMessage} from 'react-native-flash-message';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginUserData} from '../../../redux/actions/userAction';
-import {helpers} from '../../../utils';
 
 const useAction = () => {
   const dispatch = useDispatch();
@@ -28,22 +27,20 @@ const useAction = () => {
       });
       dispatch({
         type: 'SET_USER',
-        token: helpers.getUid(),
-        user: user.data.data,
-        // user: {
-        //   id: 1,
-        //   firstName: 'Danni',
-        //   lastName: 'Ramdan',
-        //   email: 'danniramdan98@gmail.com',
-        //   password: '123',
-        //   phoneId: '62',
-        //   phone: '85798261849',
-        //   image:
-        //     'http://127.0.0.1:3000/assets/images/90723d2e-9710-485e-b0ef-083549199254.jpeg',
-        //   createdAt: '2023-02-17T04:20:33.000Z',
-        //   updatedAt: '2023-02-18T17:57:18.000Z',
-        //   userId: null,
-        // },
+        token: user.data.token,
+        // user: user.data.data,
+        user: {
+          id: 1,
+          firstName: 'Danni',
+          lastName: 'Ramdan',
+          email: 'danniramdan98@gmail.com',
+          phoneId: '62',
+          phone: '85798261849',
+          image: 'https://i.pravatar.cc/150?img=3',
+          createdAt: '2023-02-17T04:20:33.000Z',
+          updatedAt: '2023-02-18T17:57:18.000Z',
+          userId: null,
+        },
       });
       dispatch({type: 'USER_RESET'});
       dispatch({type: 'CLEAN_FORM_LOGIN'});
@@ -56,7 +53,7 @@ const useAction = () => {
 
   const signIn = () => {
     const payload = {
-      link: 'users/login',
+      link: 'login',
       data: {email: form.email?.toLowerCase(), password: form.password},
     };
     dispatch(loginUserData(payload));

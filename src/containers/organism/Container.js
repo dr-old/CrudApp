@@ -1,6 +1,5 @@
 import React from 'react';
-import {Alert, ScrollView, StatusBar, StyleSheet, View} from 'react-native';
-import FlashMessage from 'react-native-flash-message';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import {Divider} from '../../components/atoms';
 import {
   BarHeader,
@@ -19,6 +18,7 @@ const Container = ({
   navbar,
   bottom,
   loading,
+  scrollview = true,
 }) => {
   return (
     <View style={stylesCust.page}>
@@ -35,38 +35,69 @@ const Container = ({
           onClear={navbar?.onClear}
         />
       ) : null}
-      <ScrollView
-        style={stylesCust.container(bgColor)}
-        ref={refScroll}
-        onScroll={onScroll}
-        refreshControl={refreshControl}>
-        {navbar?.type === 'nofixed' ? (
-          <NavHeader
-            title={navbar?.title}
-            subtitle={navbar?.subtitle}
-            value={navbar?.value}
-            onChangeText={navbar?.onChangeText}
-            onSearch={navbar?.onSearch}
-            onProfile={navbar?.onProfile}
-            onClick={navbar?.onClick}
-            onClear={navbar?.onClear}
-          />
-        ) : null}
-        {navbar?.type === 'home' ? (
-          <NavHome
-            title={navbar?.title}
-            subtitle={navbar?.subtitle}
-            value={navbar?.value}
-            onChangeText={navbar?.onChangeText}
-            onSearch={navbar?.onSearch}
-            onFavorite={navbar?.onFavorite}
-            onClick={navbar?.onClick}
-            onCart={navbar?.onCart}
-          />
-        ) : null}
-        {children}
-        <Divider height={50} />
-      </ScrollView>
+      {scrollview ? (
+        <ScrollView
+          style={stylesCust.container(bgColor)}
+          ref={refScroll}
+          onScroll={onScroll}
+          refreshControl={refreshControl}>
+          {navbar?.type === 'nofixed' ? (
+            <NavHeader
+              title={navbar?.title}
+              subtitle={navbar?.subtitle}
+              value={navbar?.value}
+              onChangeText={navbar?.onChangeText}
+              onSearch={navbar?.onSearch}
+              onProfile={navbar?.onProfile}
+              onClick={navbar?.onClick}
+              onClear={navbar?.onClear}
+            />
+          ) : null}
+          {navbar?.type === 'home' ? (
+            <NavHome
+              title={navbar?.title}
+              subtitle={navbar?.subtitle}
+              value={navbar?.value}
+              onChangeText={navbar?.onChangeText}
+              onSearch={navbar?.onSearch}
+              onFavorite={navbar?.onFavorite}
+              onClick={navbar?.onClick}
+              onCart={navbar?.onCart}
+            />
+          ) : null}
+          {children}
+          <Divider height={50} />
+        </ScrollView>
+      ) : (
+        <View style={{flex: 1, paddingHorizontal: 20}}>
+          {navbar?.type === 'nofixed' ? (
+            <NavHeader
+              title={navbar?.title}
+              subtitle={navbar?.subtitle}
+              value={navbar?.value}
+              onChangeText={navbar?.onChangeText}
+              onSearch={navbar?.onSearch}
+              onProfile={navbar?.onProfile}
+              onClick={navbar?.onClick}
+              onClear={navbar?.onClear}
+            />
+          ) : null}
+          {navbar?.type === 'home' ? (
+            <NavHome
+              title={navbar?.title}
+              subtitle={navbar?.subtitle}
+              value={navbar?.value}
+              onChangeText={navbar?.onChangeText}
+              onSearch={navbar?.onSearch}
+              onFavorite={navbar?.onFavorite}
+              onClick={navbar?.onClick}
+              onCart={navbar?.onCart}
+            />
+          ) : null}
+          {children}
+          {/* <Divider height={50} /> */}
+        </View>
+      )}
       {bottom ? bottom : null}
       {loading ? <LoadingExtern /> : null}
     </View>
