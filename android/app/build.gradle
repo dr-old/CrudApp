@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.diserva.crud"
+    namespace "com.danni.crudapp"
     defaultConfig {
-        applicationId "com.diserva.crud"
+        applicationId "com.danni.crudapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

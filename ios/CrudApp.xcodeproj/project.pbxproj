@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* CrudAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CrudAppTests.m */; };
+		00E356F31AD99517003FC87E /* crudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* crudTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		219417A638F30763135677C7 /* libPods-CrudApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835701D50D14682C0A77C78E /* libPods-CrudApp.a */; };
-		33719557DEBFE9D3AD2C695A /* libPods-CrudApp-CrudAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 473F89DB995B8DC68F24C485 /* libPods-CrudApp-CrudAppTests.a */; };
+		219417A638F30763135677C7 /* libPods-crud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835701D50D14682C0A77C78E /* libPods-crud.a */; };
+		33719557DEBFE9D3AD2C695A /* libPods-crud-crudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 473F89DB995B8DC68F24C485 /* libPods-crud-crudTests.a */; };
 		44BD2D0D29936D520048072E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44BD2CEB29936D520048072E /* Fontisto.ttf */; };
 		44BD2D0E29936D520048072E /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44BD2CEC29936D520048072E /* Octicons.ttf */; };
 		44BD2D0F29936D520048072E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44BD2CED29936D520048072E /* Feather.ttf */; };
@@ -54,23 +54,23 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = "CrudApp";
+			remoteInfo = "crud";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* CrudAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CrudAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* crudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "crudTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* CrudAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CrudAppTests.m"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* crudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "crudTests.m"; sourceTree = "<group>"; };
 		0592C2D648E4445AA8884259 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = ../assets/fonts/Fontisto.ttf; sourceTree = "<group>"; };
 		0ACF95C635C34B2081492109 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		10DD91FF5B7647E49D5500B5 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = ../assets/fonts/Zocial.ttf; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* CrudApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CrudApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "CrudApp/AppDelegate.h"; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "CrudApp/AppDelegate.mm"; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "CrudApp/Images.xcassets"; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "CrudApp/Info.plist"; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "CrudApp/main.m"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* crud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "crud.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "crud/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "crud/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "crud/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "crud/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "crud/main.m"; sourceTree = "<group>"; };
 		1F7AB1272E4043B384ADA5F7 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		27198028B9264ABF8065366D /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		28B876DA69294B0C9BB3670E /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = ../assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
@@ -111,20 +111,20 @@
 		44BD2D0A29936D520048072E /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		44BD2D0B29936D520048072E /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = ../assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
 		44BD2D0C29936D520048072E /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		473F89DB995B8DC68F24C485 /* libPods-CrudApp-CrudAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrudApp-CrudAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		473F89DB995B8DC68F24C485 /* libPods-crud-crudTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crud-crudTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AADC0ABCF9143738029C402 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		4B23B16CED084F109465128B /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = ../assets/fonts/Entypo.ttf; sourceTree = "<group>"; };
 		5070BA6C07A0433E8CAEE375 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
 		527A0CA2B4434EE4B5F156F0 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		6541B050E35782EC4B1282AA /* Pods-CrudApp-CrudAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrudApp-CrudAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6541B050E35782EC4B1282AA /* Pods-crud-crudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crud-crudTests.debug.xcconfig"; path = "Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6EDAE0D98A8F4B6A9450665D /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		77C1DC6180A24928BB59324F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = ../assets/fonts/SimpleLineIcons.ttf; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "CrudApp/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		835701D50D14682C0A77C78E /* libPods-CrudApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrudApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "crud/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		835701D50D14682C0A77C78E /* libPods-crud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8907E4B8104A4F859BE25B0F /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		8A8E2B8050DC410BBA7EF7CD /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = ../assets/fonts/Foundation.ttf; sourceTree = "<group>"; };
 		90194D1AA7FF45CAB5D4D557 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		9030A2E6A39CF6D4BFA824A4 /* Pods-CrudApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrudApp.debug.xcconfig"; path = "Target Support Files/Pods-CrudApp/Pods-CrudApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9030A2E6A39CF6D4BFA824A4 /* Pods-crud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crud.debug.xcconfig"; path = "Target Support Files/Pods-crud/Pods-crud.debug.xcconfig"; sourceTree = "<group>"; };
 		A525855CE889432888E9FEFF /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = ../assets/fonts/AntDesign.ttf; sourceTree = "<group>"; };
 		AAA73E9061164C748E8493C3 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		AAB6604D100D439782CF011F /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -132,12 +132,12 @@
 		AEA3B2A1C915497AAECC6C3A /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		B1ACBED6B1CE429385CBB1CB /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = ../assets/fonts/FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
 		BAC4FE6167A047FD922A2C1F /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = ../assets/fonts/Feather.ttf; sourceTree = "<group>"; };
-		CA3EA1FF65555DAF9874C9A4 /* Pods-CrudApp-CrudAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrudApp-CrudAppTests.release.xcconfig"; path = "Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		CA3EA1FF65555DAF9874C9A4 /* Pods-crud-crudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crud-crudTests.release.xcconfig"; path = "Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests.release.xcconfig"; sourceTree = "<group>"; };
 		D03BDBC0530046D69A58F245 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		D3630E95A5424904855C3D22 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = ../assets/fonts/Octicons.ttf; sourceTree = "<group>"; };
 		D36997CBCBFD46C1BDC7C0EB /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = ../assets/fonts/Ionicons.ttf; sourceTree = "<group>"; };
 		D905D6E7104D468E88167875 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
-		DEA28C84BC6A784829793446 /* Pods-CrudApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrudApp.release.xcconfig"; path = "Target Support Files/Pods-CrudApp/Pods-CrudApp.release.xcconfig"; sourceTree = "<group>"; };
+		DEA28C84BC6A784829793446 /* Pods-crud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crud.release.xcconfig"; path = "Target Support Files/Pods-crud/Pods-crud.release.xcconfig"; sourceTree = "<group>"; };
 		E8C5267C74284A23AC93B35C /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F1C5AC6CED97426BA0C2EB40 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = ../assets/fonts/EvilIcons.ttf; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33719557DEBFE9D3AD2C695A /* libPods-CrudApp-CrudAppTests.a in Frameworks */,
+				33719557DEBFE9D3AD2C695A /* libPods-crud-crudTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,20 +159,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				219417A638F30763135677C7 /* libPods-CrudApp.a in Frameworks */,
+				219417A638F30763135677C7 /* libPods-crud.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* CrudAppTests */ = {
+		00E356EF1AD99517003FC87E /* crudTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* CrudAppTests.m */,
+				00E356F21AD99517003FC87E /* crudTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = "CrudAppTests";
+			path = "crudTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -183,7 +183,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* CrudApp */ = {
+		13B07FAE1A68108700A75B9A /* crud */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -193,15 +193,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = "CrudApp";
+			name = "crud";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				835701D50D14682C0A77C78E /* libPods-CrudApp.a */,
-				473F89DB995B8DC68F24C485 /* libPods-CrudApp-CrudAppTests.a */,
+				835701D50D14682C0A77C78E /* libPods-crud.a */,
+				473F89DB995B8DC68F24C485 /* libPods-crud-crudTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,9 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				44BD2CE929936D190048072E /* Fonts */,
-				13B07FAE1A68108700A75B9A /* CrudApp */,
+				13B07FAE1A68108700A75B9A /* crud */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* CrudAppTests */,
+				00E356EF1AD99517003FC87E /* crudTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -274,8 +274,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* CrudApp.app */,
-				00E356EE1AD99517003FC87E /* CrudAppTests.xctest */,
+				13B07F961A680F5B00A75B9A /* crud.app */,
+				00E356EE1AD99517003FC87E /* crudTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,10 +324,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9030A2E6A39CF6D4BFA824A4 /* Pods-CrudApp.debug.xcconfig */,
-				DEA28C84BC6A784829793446 /* Pods-CrudApp.release.xcconfig */,
-				6541B050E35782EC4B1282AA /* Pods-CrudApp-CrudAppTests.debug.xcconfig */,
-				CA3EA1FF65555DAF9874C9A4 /* Pods-CrudApp-CrudAppTests.release.xcconfig */,
+				9030A2E6A39CF6D4BFA824A4 /* Pods-crud.debug.xcconfig */,
+				DEA28C84BC6A784829793446 /* Pods-crud.release.xcconfig */,
+				6541B050E35782EC4B1282AA /* Pods-crud-crudTests.debug.xcconfig */,
+				CA3EA1FF65555DAF9874C9A4 /* Pods-crud-crudTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -335,9 +335,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* CrudAppTests */ = {
+		00E356ED1AD99517003FC87E /* crudTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CrudAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "crudTests" */;
 			buildPhases = (
 				0F1D2961812303870B5F0E34 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -351,14 +351,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = CrudAppTests;
-			productName = CrudAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* CrudAppTests.xctest */;
+			name = crudTests;
+			productName = crudTests;
+			productReference = 00E356EE1AD99517003FC87E /* crudTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* CrudApp */ = {
+		13B07F861A680F5B00A75B9A /* crud */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CrudApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "crud" */;
 			buildPhases = (
 				C51CB2EFFAF5FF28782F2FA0 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -373,9 +373,9 @@
 			);
 			dependencies = (
 			);
-			name = "CrudApp";
-			productName = "CrudApp";
-			productReference = 13B07F961A680F5B00A75B9A /* CrudApp.app */;
+			name = "crud";
+			productName = "crud";
+			productReference = 13B07F961A680F5B00A75B9A /* crud.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -395,7 +395,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CrudApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "crud" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -408,8 +408,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* CrudApp */,
-				00E356ED1AD99517003FC87E /* CrudAppTests */,
+				13B07F861A680F5B00A75B9A /* crud */,
+				00E356ED1AD99517003FC87E /* crudTests */,
 			);
 		};
 /* End PBXProject section */
@@ -497,7 +497,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CrudApp-CrudAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-crud-crudTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -510,15 +510,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85E43CD7E759A26FA06DD500 /* [CP] Embed Pods Frameworks */ = {
@@ -527,15 +527,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp/Pods-CrudApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud/Pods-crud-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp/Pods-CrudApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud/Pods-crud-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrudApp/Pods-CrudApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crud/Pods-crud-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8D012BA481B7C71B67BF9678 /* [CP] Copy Pods Resources */ = {
@@ -544,15 +544,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrudApp-CrudAppTests/Pods-CrudApp-CrudAppTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crud-crudTests/Pods-crud-crudTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C51CB2EFFAF5FF28782F2FA0 /* [CP] Check Pods Manifest.lock */ = {
@@ -570,7 +570,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CrudApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-crud-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -583,15 +583,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp/Pods-CrudApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud/Pods-crud-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrudApp/Pods-CrudApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-crud/Pods-crud-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrudApp/Pods-CrudApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crud/Pods-crud-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -620,7 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* CrudAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* crudTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,7 +638,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* CrudApp */;
+			target = 13B07F861A680F5B00A75B9A /* crud */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -646,14 +646,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6541B050E35782EC4B1282AA /* Pods-CrudApp-CrudAppTests.debug.xcconfig */;
+			baseConfigurationReference = 6541B050E35782EC4B1282AA /* Pods-crud-crudTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CrudAppTests/Info.plist";
+				INFOPLIST_FILE = "crudTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -665,19 +665,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.diserva.crud";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danni.crudapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrudApp.app/CrudApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/crud.app/crud";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA3EA1FF65555DAF9874C9A4 /* Pods-CrudApp-CrudAppTests.release.xcconfig */;
+			baseConfigurationReference = CA3EA1FF65555DAF9874C9A4 /* Pods-crud-crudTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = "CrudAppTests/Info.plist";
+				INFOPLIST_FILE = "crudTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -689,21 +689,21 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.diserva.crud";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danni.crudapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrudApp.app/CrudApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/crud.app/crud";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9030A2E6A39CF6D4BFA824A4 /* Pods-CrudApp.debug.xcconfig */;
+			baseConfigurationReference = 9030A2E6A39CF6D4BFA824A4 /* Pods-crud.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "CrudApp/Info.plist";
+				INFOPLIST_FILE = "crud/Info.plist";
              INFOPLIST_KEY_CFBundleDisplayName = "Crud App";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,8 +715,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.diserva.crud";
-				PRODUCT_NAME = "CrudApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danni.crudapp";
+				PRODUCT_NAME = "crud";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -725,12 +725,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEA28C84BC6A784829793446 /* Pods-CrudApp.release.xcconfig */;
+			baseConfigurationReference = DEA28C84BC6A784829793446 /* Pods-crud.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = "CrudApp/Info.plist";
+				INFOPLIST_FILE = "crud/Info.plist";
              INFOPLIST_KEY_CFBundleDisplayName = "Crud App";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -742,8 +742,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.diserva.crud";
-				PRODUCT_NAME = "CrudApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danni.crudapp";
+				PRODUCT_NAME = "crud";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -889,7 +889,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CrudAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "crudTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -898,7 +898,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CrudApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "crud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -907,7 +907,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CrudApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "crud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
