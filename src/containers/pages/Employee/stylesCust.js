@@ -1,10 +1,17 @@
-import {PixelRatio, Platform, StyleSheet} from 'react-native';
-import {color, styles} from '../../../utils/styles';
+import {StyleSheet} from 'react-native';
+import {color} from '../../../utils/styles';
 
 const stylesCust = StyleSheet.create({
   image: {
     resizeMode: 'cover',
     height: 250,
+  },
+  cardImage: {
+    height: 150,
+    width: 150,
+    borderRadius: 15,
+    marginBottom: 10,
+    resizeMode: 'cover',
   },
   price: {
     height: 50,
@@ -33,8 +40,8 @@ const stylesCust = StyleSheet.create({
     backgroundColor: color.white,
   },
   cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 20,
     marginHorizontal: 20,
   },
@@ -53,7 +60,7 @@ const stylesCust = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 20,
   },
-  cardTitle: {flex: 1},
+  cardTitle: {flex: 1, textAlign: 'center'},
   similarText: {marginHorizontal: 20, marginVertical: 20},
   goBack: {position: 'absolute', top: 20, left: 20, zIndex: 10},
   buttonType: (

@@ -8,7 +8,8 @@ const env = {
     },
   },
   CONFIGFAKE: {
-    baseURL: 'https://fakestoreapi.com/',
+    // baseURL: 'https://fakestoreapi.com/',
+    baseURL: 'https://reqres.in/api/',
   },
   CONFIG: {
     baseURL: 'http://localhost:3000/',

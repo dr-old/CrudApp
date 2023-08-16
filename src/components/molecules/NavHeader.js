@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
-import {ButtonIcon, Divider, InputText} from '../atoms';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Feather from 'react-native-vector-icons/Feather';
+import {ButtonIcon, InputText} from '../atoms';
 
 function NavHeader({
   title,
