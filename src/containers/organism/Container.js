@@ -29,8 +29,8 @@ const Container = ({
           subtitle={navbar?.subtitle}
           value={navbar?.value}
           onChangeText={navbar?.onChangeText}
+          onEdit={navbar?.onEdit}
           onSearch={navbar?.onSearch}
-          onProfile={navbar?.onProfile}
           onClick={navbar?.onClick}
           onClear={navbar?.onClear}
         />
@@ -48,7 +48,7 @@ const Container = ({
               value={navbar?.value}
               onChangeText={navbar?.onChangeText}
               onSearch={navbar?.onSearch}
-              onProfile={navbar?.onProfile}
+              onEdit={navbar?.onEdit}
               onClick={navbar?.onClick}
               onClear={navbar?.onClear}
             />
@@ -77,7 +77,7 @@ const Container = ({
               value={navbar?.value}
               onChangeText={navbar?.onChangeText}
               onSearch={navbar?.onSearch}
-              onProfile={navbar?.onProfile}
+              onEdit={navbar?.onEdit}
               onClick={navbar?.onClick}
               onClear={navbar?.onClear}
             />

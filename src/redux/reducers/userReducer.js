@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   data: {},
   error: {},
+  user: {},
   users: [],
 };
 
@@ -11,6 +12,12 @@ const initialState = {
 export default userReducer = (state = initialState, {type, payload}) => {
   switch (type) {
     case types.INSERT_USER:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case types.UPDATE_USER:
       return {
         ...state,
         loading: true,
@@ -26,6 +33,13 @@ export default userReducer = (state = initialState, {type, payload}) => {
       return {
         ...state,
         loading: true,
+      };
+
+    case types.UPDATE_DETAIL_USER:
+      return {
+        ...state,
+        loading: false,
+        user: payload,
       };
 
     case types.USER_SUCCESS:

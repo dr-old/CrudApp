@@ -25,6 +25,7 @@ const initialState = {
     phone2: '',
     email: '',
     web: '',
+    job: '',
   },
   formTopup: {
     nominal: 0,
@@ -137,6 +138,28 @@ export default generalReducer = (state = initialState, action) => {
       };
 
     // REDUCER EMPLOYEE
+    case 'SETALL_FORM_EMPLOYEE':
+      return {
+        ...state,
+        formEmployee: {
+          ...state.formEmployee,
+          first_name: action.first_name,
+          last_name: action.last_name,
+          company_name: action.company_name,
+          address: action.address,
+          city: action.city,
+          county: action.county,
+          state: action.state,
+          zip: action.zip,
+          phone1: action.phone1,
+          phone2: action.phone2,
+          email: action.email,
+          web: action.web,
+          job: action.job,
+        },
+      };
+
+    // REDUCER EMPLOYEE
     case 'CLEAN_FORM_EMPLOYEE':
       return {
         ...state,
@@ -153,6 +176,7 @@ export default generalReducer = (state = initialState, action) => {
           phone2: '',
           email: '',
           web: '',
+          job: '',
         },
       };
 

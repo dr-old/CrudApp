@@ -10,7 +10,7 @@ function NavHeader({
   onChangeText,
   onClick,
   onSearch,
-  onProfile,
+  onEdit,
   onClear,
 }) {
   return (
@@ -54,13 +54,24 @@ function NavHeader({
           onClick={onClear}
         />
       ) : null}
-      {onClick && !onClear ? (
+      {onClick && !onEdit && !onClear ? (
         <ButtonIcon
           type={stylesCust.buttonType(color.white9)}
           style={stylesCust.buttonFloat('flex-end')}
           name="chevron-left"
           size={20}
           disabled={true}
+        />
+      ) : null}
+      {onEdit ? (
+        <ButtonIcon
+          type={stylesCust.buttonType(
+            onEdit.icon === 'edit' ? color.tblack : color.green,
+          )}
+          style={stylesCust.buttonFloat('flex-end')}
+          name={onEdit.icon}
+          size={20}
+          onClick={onEdit.onClick}
         />
       ) : null}
     </View>

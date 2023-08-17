@@ -24,6 +24,18 @@ export function insertUserData(data) {
   };
 }
 
+export function updateUserData(data) {
+  return {
+    type: types.UPDATE_USER,
+    payload: data,
+  };
+}
+
+export const updateDetailUserData = users => ({
+  type: types.UPDATE_DETAIL_USER,
+  payload: users,
+});
+
 export function loginUserData(data) {
   return {
     type: types.GET_LOGIN,

@@ -41,3 +41,13 @@ export const postApiFake = async payload => {
     return err.response.data;
   }
 };
+
+export const putApiFake = async payload => {
+  try {
+    const response = await axiosFake.put(payload.link, payload.data);
+    return response.data;
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+};

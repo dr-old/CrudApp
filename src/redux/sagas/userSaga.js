@@ -1,7 +1,7 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
 import {types} from '../actions/types';
-import {getApiFake, postApiFake} from '../apis/baseApi';
-import {updateListUserData} from '../actions/userAction';
+import {getApiFake, postApiFake, putApiFake} from '../apis/baseApi';
+import {updateDetailUserData, updateListUserData} from '../actions/userAction';
 
 function* loginUser({payload}) {
   const response = yield call(postApiFake, payload);
@@ -15,6 +15,22 @@ function* loginUser({payload}) {
   }
 }
 
+function* updateUser({payload}) {
+  const response = yield call(putApiFake, payload);
+  if (response?.name) {
+    yield put(updateDetailUserData(response));
+    const fullname = response.name.split(' ');
+    yield put({
+      type: 'SETALL_FORM_EMPLOYEE',
+      first_name: fullname[0],
+      last_name: fullname[1],
+      job: response.job,
+    });
+  } else {
+    yield put({type: types.USER_FAILURE, payload: {message: response.error}});
+  }
+}
+
 function* detailUser({payload}) {
   const response = yield call(getApiFake, payload);
   if (response?.data) {
@@ -22,6 +38,13 @@ function* detailUser({payload}) {
       type: types.USER_SUCCESS,
       payload: {data: response.data, message: 'User is found'},
     });
+    yield put({
+      type: 'SETALL_FORM_EMPLOYEE',
+      first_name: response.data.first_name,
+      last_name: response.data.last_name,
+      job: response.data?.job ?? '',
+    });
+    console.log('details', response.data);
   } else {
     yield put({type: types.USER_FAILURE, payload: {message: response.error}});
   }
@@ -41,6 +64,7 @@ function* listUser({payload}) {
 
 export default function* userSaga() {
   // yield takeLatest(types.INSERT_USER, insertUser);
+  yield takeLatest(types.UPDATE_USER, updateUser);
   yield takeLatest(types.GET_LOGIN, loginUser);
   yield takeLatest(types.GET_LIST_USER, listUser);
   yield takeLatest(types.GET_DETAIL_USER, detailUser);
