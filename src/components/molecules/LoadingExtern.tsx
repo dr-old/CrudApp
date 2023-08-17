@@ -2,27 +2,34 @@ import React from 'react';
 import {View, ActivityIndicator, StyleSheet, Text} from 'react-native';
 import {color, styles} from '../../utils/styles';
 
-function LoadingExtern({backgroundColor}) {
+interface LoadingExternProps {
+  backgroundColor?: string;
+}
+
+const LoadingExtern: React.FC<LoadingExternProps> = ({backgroundColor}) => {
   return (
-    <View style={stylesCust.pageLoading(backgroundColor || color.loading)}>
+    <View
+      style={[
+        stylesCust.pageLoading,
+        {backgroundColor: backgroundColor ? backgroundColor : color.loading},
+      ]}>
       <View style={stylesCust.pageInnerLoading}>
         <ActivityIndicator size="large" color={color.bluep} />
-        <Text style={stylesCust.text}>Loading...</Text>
+        <Text style={[styles.p3(), {marginTop: 10}]}>Loading...</Text>
       </View>
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
-  pageLoading: backgroundColor => ({
+  pageLoading: {
     position: 'absolute',
     zIndex: 9,
     width: '100%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor,
-  }),
+  },
   pageInnerLoading: {
     position: 'relative',
     zIndex: 99,
@@ -33,7 +40,6 @@ const stylesCust = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: color.white,
   },
-  text: [styles.p3(), {marginTop: 10}],
 });
 
 export default LoadingExtern;

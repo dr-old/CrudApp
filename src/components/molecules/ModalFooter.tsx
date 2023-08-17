@@ -1,32 +1,36 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {color} from '../../utils/styles';
 import {ButtonLabel} from '../atoms';
 
-function ModalFooter(props) {
+interface ModalFooterProps {
+  onCancel: () => void;
+  onSubmit: () => void;
+}
+
+const ModalFooter: FC<ModalFooterProps> = ({onCancel, onSubmit}) => {
   return (
     <View style={stylesCust.modalContent}>
-      <View style={{width: '47%'}}>
+      <View style={stylesCust.button}>
         <ButtonLabel
           type="default"
           solid={true}
           label="Cancel"
           size="large"
-          onClick={props.onCancel}
+          onClick={onCancel}
         />
       </View>
-      <View style={{width: '47%'}}>
+      <View style={stylesCust.button}>
         <ButtonLabel
           type="danger"
           solid={true}
           label="Delete"
           size="large"
-          onClick={props.onSubmit}
+          onClick={onSubmit}
         />
       </View>
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
   modalContent: {
@@ -35,26 +39,8 @@ const stylesCust = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: 5,
     marginTop: 20,
-    // marginVertical: 17,
   },
-  approveButton: {
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    justifyContent: 'center',
-  },
-  reset: {
-    width: '48%',
-    backgroundColor: color.white2,
-    // marginTop: 10,
-    // marginBottom: 20,
-  },
-  save: {
-    backgroundColor: color.green,
-    width: '48%',
-    // marginTop: 10,
-    // marginBottom: 20,
-  },
+  button: {width: '47%'},
 });
 
 export default ModalFooter;

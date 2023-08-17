@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Modal, StyleSheet, Text, View} from 'react-native';
 import {ModalFooter, ModalHeader} from '../../components/molecules';
 import {color, styles} from '../../utils/styles';
 
-function ModalAlert({data, close}) {
+interface ModalAlertProps {
+  data: {
+    status: boolean;
+    message: string;
+    onSubmit?: () => void;
+    onCancel?: () => void;
+    labelSubmit?: string | null;
+    labelCancel?: string | null;
+  };
+  close: () => void;
+}
+
+const ModalAlert: FC<ModalAlertProps> = ({data, close}) => {
   return (
     <View style={stylesCust.centeredView}>
       <Modal
@@ -14,7 +26,7 @@ function ModalAlert({data, close}) {
         <View style={stylesCust.centeredView}>
           <View style={stylesCust.modalView}>
             <ModalHeader label="Attention" close={close} />
-            <View style={{width: '100%', marginBottom: 20}}>
+            <View style={stylesCust.message}>
               <Text
                 style={styles.textBase(
                   13,
@@ -28,9 +40,9 @@ function ModalAlert({data, close}) {
             {data.onSubmit && data.onCancel && (
               <ModalFooter
                 onSubmit={data.onSubmit}
-                labelSubmit={data?.labelSubmit ?? null}
+                labelSubmit={data.labelSubmit ?? null}
                 onCancel={data.onCancel}
-                labelCancel={data?.labelCancel ?? null}
+                labelCancel={data.labelCancel ?? null}
               />
             )}
           </View>
@@ -38,9 +50,10 @@ function ModalAlert({data, close}) {
       </Modal>
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
+  message: {width: '100%', marginBottom: 20},
   centeredView: {
     flex: 1,
     justifyContent: 'flex-end',

@@ -1,29 +1,26 @@
-import React, {useState} from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
 import {ButtonIcon, Divider} from '../atoms';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-function NavHome({
-  title,
-  subtitle,
-  value,
-  onChangeText,
-  onClick,
-  onSearch,
-  onCart,
-  onFavorite,
-}) {
-  const [isFocus, setFocus] = useState(null);
+interface NavHomeProps {
+  title: string;
+  onSearch?: () => void;
+  onCart: () => void;
+  onFavorite?: () => void;
+}
 
+const NavHome: FC<NavHomeProps> = ({title, onSearch, onCart, onFavorite}) => {
   return (
-    <View style={{height: 150}}>
+    <View style={stylesCust.navHome}>
       <View style={stylesCust.header}>
         <View style={stylesCust.headerContent}>
           <View style={stylesCust.imageInit}>
             <Text
               style={[
                 styles.textBase(20, color.white, 'textSemiBold', 'uppercase'),
+                // eslint-disable-next-line react-native/no-inline-styles
                 {paddingTop: 5},
               ]}>
               DR
@@ -37,17 +34,20 @@ function NavHome({
           </View>
           <View style={stylesCust.headerButton}>
             {onFavorite ? (
-              <ButtonIcon
-                type={stylesCust.buttonType()}
-                onClick={onFavorite}
-                name="heart"
-                size={20}
-              />
+              <>
+                <ButtonIcon
+                  type={stylesCust.buttonType}
+                  onClick={onFavorite}
+                  name="plus"
+                  size={20}
+                />
+                <Divider width={10} height={0} />
+              </>
             ) : null}
             <ButtonIcon
-              type={stylesCust.buttonType()}
+              type={stylesCust.buttonType}
               onClick={onCart}
-              name="plus"
+              name="user"
               size={20}
             />
           </View>
@@ -55,20 +55,19 @@ function NavHome({
       </View>
       {onSearch ? (
         <View style={stylesCust.search}>
-          <TouchableOpacity
-            onPress={onSearch}
-            style={stylesCust.searchInput(color.white)}>
+          <TouchableOpacity onPress={onSearch} style={stylesCust.searchInput}>
             <FontAwesome5 name="search" size={20} color={color.tgrey3} />
-            <Divider width={10} />
+            <Divider width={10} height={0} />
             <Text style={styles.p4(color.tgrey3)}>Search in here ...</Text>
           </TouchableOpacity>
         </View>
       ) : null}
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
+  navHome: {height: 100, marginHorizontal: 30},
   imageInit: {
     backgroundColor: color.green4,
     width: 48,
@@ -89,11 +88,14 @@ const stylesCust = StyleSheet.create({
     marginRight: 30,
   },
   headerButton: {flexDirection: 'row'},
-  headerLocation: {flex: 1, justifyContent: 'center'},
+  headerLocation: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
   headerContent: {
     flex: 1,
     flexDirection: 'row',
-    // marginHorizontal: 30,
     marginBottom: 5,
   },
   profile: {
@@ -107,39 +109,31 @@ const stylesCust = StyleSheet.create({
   search: {
     height: 40,
     flexDirection: 'row',
-    // marginHorizontal: 30,
     marginBottom: 30,
   },
-  searchInput: borderColor => ({
+  searchInput: {
     borderWidth: 1,
-    borderColor: borderColor,
-    backgroundColor: borderColor,
+    borderColor: color.white,
+    backgroundColor: color.white,
     borderRadius: 10,
     flex: 1,
     paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
-  }),
+  },
   header: {
     flex: 1,
-    // alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 20,
     paddingBottom: 10,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
   },
-  buttonType: (clr = color.tblack) => ({
+  buttonType: {
     backgroundColor: color.white,
     borderColor: color.white,
-    color: clr,
-  }),
-  buttonFloat: {position: 'absolute', left: 0, marginLeft: 30},
-  title: [
-    styles.h3(color.white),
-    {textTransform: 'none', marginHorizontal: 30, marginBottom: 10},
-  ],
-  subtitle: [styles.p4(color.tgrey3, 'center'), {textTransform: 'none'}],
+    color: color.tblack,
+  },
 });
 
 export default NavHome;

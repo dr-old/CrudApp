@@ -6,19 +6,21 @@ import stylesCust from './stylesCust';
 import useAction from './useAction';
 
 const Splash = () => {
-  const {slides, width, height, page, onScrollEnd} = useAction();
+  const {slides, width, height, page, onScrollEnd, counter} = useAction();
 
   return (
     <>
       <BarHeader bgcolor={color.white7} />
       <View style={stylesCust.page}>
         <View style={stylesCust.logoText}>
-          {/* <Text style={styles.h1(color.bluep5, null, 'textLight')}>My</Text> */}
           <Text style={styles.h1(color.green4, null, 'textMedium')}>Crud</Text>
           <Text style={styles.textBase(30, color.green4, 'textLight', 'none')}>
             App
           </Text>
         </View>
+        <Text style={styles.h2(color.tblack, 'center', 'textMedium')}>
+          {counter}
+        </Text>
       </View>
     </>
   );

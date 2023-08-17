@@ -1,9 +1,24 @@
-import React from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
 import {ButtonIcon, InputText} from '../atoms';
 
-function NavHeader({
+interface NavHeaderProps {
+  title?: string;
+  subtitle?: string;
+  value?: string;
+  onChangeText?: (text: string) => void;
+  onClick?: () => void;
+  onSearch?: () => void;
+  onEdit?: {
+    icon: string;
+    onClick: () => void;
+  };
+  onClear?: () => void;
+}
+
+const NavHeader: FC<NavHeaderProps> = ({
   title,
   subtitle,
   value,
@@ -12,13 +27,22 @@ function NavHeader({
   onSearch,
   onEdit,
   onClear,
-}) {
+}) => {
+  const buttonType = {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+  };
   return (
     <View style={stylesCust.header}>
       {onClick ? (
         <ButtonIcon
-          type={stylesCust.buttonType()}
-          style={stylesCust.buttonFloat()}
+          type={{...buttonType, color: color.tblack}}
+          style={[
+            stylesCust.buttonFloat,
+            {
+              alignItems: 'flex-start',
+            },
+          ]}
           name="chevron-left"
           size={20}
           onClick={onClick}
@@ -26,8 +50,6 @@ function NavHeader({
       ) : null}
       {onSearch ? (
         <View style={stylesCust.searchInput}>
-          {/* <Feather name="search" size={20} color={color.tgrey3} />
-          <Divider width={10} /> */}
           <InputText
             placeholder="Search in here ..."
             value={value}
@@ -41,14 +63,20 @@ function NavHeader({
         <View style={stylesCust.headerText}>
           {title ? <Text style={stylesCust.title}>{title}</Text> : null}
           {subtitle ? (
-            <Text style={stylesCust.subtitle}>{subtitle}</Text>
+            <Text
+              style={[
+                styles.p4(color.tgrey3, 'center'),
+                {textTransform: 'none'},
+              ]}>
+              {subtitle}
+            </Text>
           ) : null}
         </View>
       )}
       {onClear ? (
         <ButtonIcon
-          type={stylesCust.buttonType()}
-          style={stylesCust.buttonFloat('flex-end')}
+          type={{...buttonType, color: color.tblack}}
+          style={[stylesCust.buttonFloat, {alignItems: 'flex-end'}]}
           name={onSearch ? 'x' : 'search'}
           size={20}
           onClick={onClear}
@@ -56,8 +84,8 @@ function NavHeader({
       ) : null}
       {onClick && !onEdit && !onClear ? (
         <ButtonIcon
-          type={stylesCust.buttonType(color.white9)}
-          style={stylesCust.buttonFloat('flex-end')}
+          type={{...buttonType, color: color.white9}}
+          style={[stylesCust.buttonFloat, {alignItems: 'flex-end'}]}
           name="chevron-left"
           size={20}
           disabled={true}
@@ -65,10 +93,11 @@ function NavHeader({
       ) : null}
       {onEdit ? (
         <ButtonIcon
-          type={stylesCust.buttonType(
-            onEdit.icon === 'edit' ? color.tblack : color.green,
-          )}
-          style={stylesCust.buttonFloat('flex-end')}
+          type={{
+            ...buttonType,
+            color: onEdit.icon === 'edit' ? color.tblack : color.green,
+          }}
+          style={[stylesCust.buttonFloat, {alignItems: 'flex-end'}]}
           name={onEdit.icon}
           size={20}
           onClick={onEdit.onClick}
@@ -76,7 +105,7 @@ function NavHeader({
       ) : null}
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
   profile: {
@@ -112,19 +141,12 @@ const stylesCust = StyleSheet.create({
     paddingHorizontal: 30,
     backgroundColor: color.white9,
   },
-  buttonType: (clr = color.tblack) => ({
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    color: clr,
-  }),
-  buttonFloat: (alignItems = 'flex-start') => ({
-    alignItems: alignItems,
+  buttonFloat: {
     justifyContent: 'center',
     width: 38,
     height: 38,
-  }),
+  },
   title: styles.h3(color.tblack, 'center'),
-  subtitle: [styles.p4(color.tgrey3, 'center'), {textTransform: 'none'}],
 });
 
 export default NavHeader;

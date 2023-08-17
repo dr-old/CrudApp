@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Setting, Home, Employee, EmployeeAdd} from '../containers/pages';
+import {Setting, Employee, EmployeeAdd, Home} from '../containers/pages';
 
 const Stack = createNativeStackNavigator();
 

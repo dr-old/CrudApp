@@ -1,15 +1,39 @@
-import React, {useState} from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import React, {useState, FC, Ref} from 'react';
+import {View, StyleSheet, Text, TextInputProps, TextInput} from 'react-native';
 import {styles, color} from '../../utils/styles';
 import {ButtonIcon, Divider, InputText} from '../atoms';
 
-function FormInput({
+interface FormInputProps extends TextInputProps {
+  label?: string;
+  type?: 'outline' | 'solid';
+  solid?: string;
+  textRight?: 'left' | 'right';
+  placeholder?: string;
+  value?: string;
+  disabled?: boolean;
+  refInput?: Ref<TextInput>;
+  secureTextEntry?: boolean;
+  onKeyPress?: (event: any) => void;
+  onSubmitEditing?: () => void;
+  multiline?: boolean;
+  icon?: {
+    name?: string;
+    color?: string;
+    onClick?: () => void;
+  };
+  autoComplete?:
+    | 'off'
+    | 'username'
+    | 'password'
+    | 'email'
+    | 'name'
+    | 'tel'
+    | 'street-address'
+    | 'postal-code'
+    | undefined;
+}
+
+const FormInput: FC<FormInputProps> = ({
   label,
   type,
   solid,
@@ -26,12 +50,13 @@ function FormInput({
   icon,
   keyboardType,
   autoComplete,
-}) {
-  const [isFocus, setFocus] = useState(null);
+}) => {
+  const [isFocus, setFocus] = useState<boolean | null>(null);
   let brcolor = '';
   let bgcolor = 'transparent';
   let brradius = 8;
   let padhrz = 10;
+
   if (type === 'outline') {
     brcolor = color.line;
   }
@@ -39,24 +64,29 @@ function FormInput({
     bgcolor = solid ? solid : color.tgrey2;
     brcolor = solid ? solid : color.tgrey2;
   }
+
   return (
     <View>
       {label && (
         <>
           <Text style={styles.textBase()}>{label}</Text>
-          <Divider width={10} />
+          <Divider width={10} height={0} />
         </>
       )}
       <View
-        style={stylesCust.inputText(
-          isFocus ? color.green4 : brcolor,
-          brradius,
-          padhrz,
-          bgcolor,
-          multiline ? 100 : 40,
-        )}>
+        style={[
+          stylesCust.inputText,
+          // eslint-disable-next-line react-native/no-inline-styles
+          {
+            borderColor: isFocus ? color.green4 : brcolor,
+            borderRadius: brradius,
+            paddingHorizontal: padhrz,
+            backgroundColor: bgcolor,
+            height: multiline ? 100 : 40,
+          },
+        ]}>
         <InputText
-          myHeight={multiline ? 100 : null}
+          myHeight={multiline ? 100 : undefined}
           textRight={textRight}
           value={value}
           placeholder={placeholder}
@@ -77,7 +107,7 @@ function FormInput({
             type={{
               backgroundColor: 'transparent',
               borderColor: 'transparent',
-              color: icon?.color ? icon.color : color.blue,
+              color: icon.color ? icon.color : color.blue,
             }}
             style={stylesCust.inputIcon}
             name={icon.name}
@@ -88,34 +118,16 @@ function FormInput({
       </View>
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
-  input: (textRight = 'left') => ({
-    fontFamily: 'Poppins-Medium',
-    width: '100%',
-    textAlign: textRight,
-    color: color.grey2,
-    backgroundColor: color.white,
-  }),
-  inputText: (
-    borderColor,
-    borderRadius,
-    paddingHorizontal,
-    backgroundColor,
-    height,
-  ) => ({
-    height: height,
+  inputText: {
     flexDirection: 'row',
-    borderColor: borderColor,
     borderWidth: 1,
-    borderRadius: borderRadius,
-    paddingHorizontal: paddingHorizontal,
     marginBottom: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: backgroundColor,
-  }),
+  },
   inputIcon: {
     paddingLeft: 17,
     marginVertical: 10,

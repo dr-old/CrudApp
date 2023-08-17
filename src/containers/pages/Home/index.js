@@ -6,9 +6,7 @@ import {Container} from '../../organism';
 import {color} from '../../../utils/styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
-import {updateDetailUserData} from '../../../redux/actions/userAction';
 import {helpers} from '../../../utils';
-// Import other components and dependencies as needed
 
 const Home = () => {
   const {users, loadMore, reload} = useFetchUsers();
@@ -24,8 +22,11 @@ const Home = () => {
       navbar={{
         type: 'home',
         title: `${user.data?.firstName} ${user.data?.lastName}`,
-        onSearch: () => console.log(1),
-        onCart: () => navigation.push('EmployeeAdd'),
+        onFavorite: () => {
+          navigation.push('EmployeeAdd');
+          dispatch({type: 'CLEAN_FORM_EMPLOYEE'});
+        },
+        onCart: () => navigation.push('Setting'),
       }}>
       <View style={styles.container}>
         <FlatList
@@ -34,7 +35,6 @@ const Home = () => {
             <TileArticle
               item={item}
               onClick={() => {
-                dispatch(updateDetailUserData({}));
                 navigation.push('Employee', {userId: item.id});
               }}
             />
@@ -53,12 +53,6 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  userItem: {
-    padding: 10,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
   },
 });
 
