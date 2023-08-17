@@ -24,8 +24,9 @@ const Home = () => {
       navbar={{
         type: 'home',
         title: `${user.data?.firstName} ${user.data?.lastName}`,
-        onSearch: () => console.log(1),
-        onCart: () => navigation.push('EmployeeAdd'),
+        // onSearch: () => console.log(1),
+        onFavorite: () => navigation.push('EmployeeAdd'),
+        onCart: () => navigation.push('Setting'),
       }}>
       <View style={styles.container}>
         <FlatList

@@ -1,10 +1,11 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Dimensions} from 'react-native';
 
 const useAction = () => {
   const navigation = useNavigation();
   const [page, setPage] = useState(0);
+  const [counter, setCounter] = useState(0);
   const {width, height} = Dimensions.get('window');
   const slides = [
     {
@@ -32,13 +33,18 @@ const useAction = () => {
   ];
 
   useEffect(() => {
-    navigateToLogin();
-  });
+    const interval = setInterval(() => {
+      if (counter < 10) {
+        setCounter(counter + 1);
+      } else {
+        navigation.replace('Login');
+      }
+    }, 1000);
 
-  const navigateToLogin = async () => {
-    const wait = time => new Promise(resolve => setTimeout(resolve, time));
-    return wait(2000).then(() => navigation.replace('Login'));
-  };
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   const onScrollEnd = e => {
     let pageNumber = Math.min(
@@ -48,7 +54,7 @@ const useAction = () => {
     setPage(pageNumber - 1);
   };
 
-  return {slides, width, height, page, onScrollEnd};
+  return {slides, width, height, page, counter, onScrollEnd};
 };
 
 export default useAction;

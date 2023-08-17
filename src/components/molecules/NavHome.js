@@ -17,7 +17,7 @@ function NavHome({
   const [isFocus, setFocus] = useState(null);
 
   return (
-    <View style={{height: 150}}>
+    <View style={{height: 100}}>
       <View style={stylesCust.header}>
         <View style={stylesCust.headerContent}>
           <View style={stylesCust.imageInit}>
@@ -37,17 +37,20 @@ function NavHome({
           </View>
           <View style={stylesCust.headerButton}>
             {onFavorite ? (
-              <ButtonIcon
-                type={stylesCust.buttonType()}
-                onClick={onFavorite}
-                name="heart"
-                size={20}
-              />
+              <>
+                <ButtonIcon
+                  type={stylesCust.buttonType()}
+                  onClick={onFavorite}
+                  name="plus"
+                  size={20}
+                />
+                <Divider width={10} />
+              </>
             ) : null}
             <ButtonIcon
               type={stylesCust.buttonType()}
               onClick={onCart}
-              name="plus"
+              name="user"
               size={20}
             />
           </View>
@@ -89,7 +92,11 @@ const stylesCust = StyleSheet.create({
     marginRight: 30,
   },
   headerButton: {flexDirection: 'row'},
-  headerLocation: {flex: 1, justifyContent: 'center'},
+  headerLocation: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
   headerContent: {
     flex: 1,
     flexDirection: 'row',

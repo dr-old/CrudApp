@@ -11,7 +11,6 @@ const stylesCust = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 30,
   },
   initPhoto: [
     styles.textBase(45, color.white, 'textSemiBold', 'uppercase'),

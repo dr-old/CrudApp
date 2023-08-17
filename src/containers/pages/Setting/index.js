@@ -1,16 +1,24 @@
 import * as React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {Container, SettingList} from '../../organism';
 import packageJson from '../../../../package.json';
 import stylesCust from './stylesCust';
 import useAction from './useAction';
+import {useNavigation} from '@react-navigation/native';
 
 function Setting() {
   const {user, signOut} = useAction();
+  const navigation = useNavigation();
 
   return (
-    <Container bgColor={color.white9}>
+    <Container
+      bgColor={color.white9}
+      navbar={{
+        type: 'nofixed',
+        title: '',
+        onClick: () => navigation.goBack(),
+      }}>
       {user?.data ? (
         <View style={stylesCust.user}>
           {/* <Image

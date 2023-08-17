@@ -6,7 +6,7 @@ import stylesCust from './stylesCust';
 import useAction from './useAction';
 
 const Splash = () => {
-  const {slides, width, height, page, onScrollEnd} = useAction();
+  const {slides, width, height, page, onScrollEnd, counter} = useAction();
 
   return (
     <>
@@ -19,6 +19,9 @@ const Splash = () => {
             App
           </Text>
         </View>
+        <Text style={styles.h2(color.tblack, 'center', 'textMedium')}>
+          {counter}
+        </Text>
       </View>
     </>
   );
