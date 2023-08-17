@@ -1,5 +1,5 @@
-import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import React, {ReactNode, ReactElement} from 'react';
+import {ScrollView, StyleSheet, View, ScrollViewProps} from 'react-native';
 import {Divider} from '../../components/atoms';
 import {
   BarHeader,
@@ -7,9 +7,20 @@ import {
   NavHeader,
   NavHome,
 } from '../../components/molecules';
-import {color} from '../../utils/styles';
 
-const Container = ({
+interface ContainerProps {
+  refScroll?: React.RefObject<ScrollView>;
+  refreshControl?: ReactElement;
+  onScroll?: ScrollViewProps['onScroll'];
+  bgColor?: string;
+  children?: ReactNode;
+  navbar?: any;
+  bottom?: ReactNode;
+  loading?: boolean;
+  scrollview?: boolean;
+}
+
+const Container: React.FC<ContainerProps> = ({
   refScroll,
   refreshControl,
   onScroll,
@@ -37,7 +48,7 @@ const Container = ({
       ) : null}
       {scrollview ? (
         <ScrollView
-          style={stylesCust.container(bgColor)}
+          style={{backgroundColor: bgColor}}
           ref={refScroll}
           onScroll={onScroll}
           refreshControl={refreshControl}>
@@ -56,12 +67,8 @@ const Container = ({
           {navbar?.type === 'home' ? (
             <NavHome
               title={navbar?.title}
-              subtitle={navbar?.subtitle}
-              value={navbar?.value}
-              onChangeText={navbar?.onChangeText}
               onSearch={navbar?.onSearch}
               onFavorite={navbar?.onFavorite}
-              onClick={navbar?.onClick}
               onCart={navbar?.onCart}
             />
           ) : null}
@@ -69,7 +76,7 @@ const Container = ({
           <Divider height={50} />
         </ScrollView>
       ) : (
-        <View style={{flex: 1, paddingHorizontal: 20}}>
+        <View style={stylesCust.page}>
           {navbar?.type === 'nofixed' ? (
             <NavHeader
               title={navbar?.title}
@@ -85,12 +92,8 @@ const Container = ({
           {navbar?.type === 'home' ? (
             <NavHome
               title={navbar?.title}
-              subtitle={navbar?.subtitle}
-              value={navbar?.value}
-              onChangeText={navbar?.onChangeText}
               onSearch={navbar?.onSearch}
               onFavorite={navbar?.onFavorite}
-              onClick={navbar?.onClick}
               onCart={navbar?.onCart}
             />
           ) : null}
@@ -99,15 +102,15 @@ const Container = ({
         </View>
       )}
       {bottom ? bottom : null}
-      {loading ? <LoadingExtern /> : null}
+      {loading ? <LoadingExtern backgroundColor={undefined} /> : null}
     </View>
   );
 };
+
 const stylesCust = StyleSheet.create({
-  page: {flex: 1},
-  container: (backgroundColor = color.white) => ({
-    backgroundColor: backgroundColor,
-  }),
+  page: {
+    flex: 1,
+  },
 });
 
 export default Container;

@@ -13,7 +13,6 @@ const Splash = () => {
       <BarHeader bgcolor={color.white7} />
       <View style={stylesCust.page}>
         <View style={stylesCust.logoText}>
-          {/* <Text style={styles.h1(color.bluep5, null, 'textLight')}>My</Text> */}
           <Text style={styles.h1(color.green4, null, 'textMedium')}>Crud</Text>
           <Text style={styles.textBase(30, color.green4, 'textLight', 'none')}>
             App

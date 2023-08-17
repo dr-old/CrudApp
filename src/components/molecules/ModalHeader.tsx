@@ -1,22 +1,31 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {ButtonIcon} from '../atoms';
 import {color, styles} from '../../utils/styles';
 
-function ModalHeader(props) {
+interface ModalHeaderProps {
+  label: string;
+  close: () => void;
+}
+
+const ModalHeader: FC<ModalHeaderProps> = ({label, close}) => {
   return (
     <View style={stylesCust.modalContent}>
-      <Text style={styles.h3()}>{props.label}</Text>
+      <Text style={styles.h3()}>{label}</Text>
       <ButtonIcon
-        type={stylesCust.buttonType()}
-        style={stylesCust.buttonFloat('flex-end')}
+        type={{
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+          color: color.tblack,
+        }}
+        style={stylesCust.buttonFloat}
         name="x"
         size={20}
-        onClick={props.close}
+        onClick={close}
       />
     </View>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
   modalContent: {
@@ -27,17 +36,12 @@ const stylesCust = StyleSheet.create({
     paddingBottom: 5,
     marginBottom: 20,
   },
-  buttonType: (clr = color.tblack) => ({
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    color: clr,
-  }),
-  buttonFloat: (alignItems = 'flex-start') => ({
-    alignItems: alignItems,
+  buttonFloat: {
+    alignItems: 'flex-end',
     justifyContent: 'center',
     width: 38,
     height: 38,
-  }),
+  },
 });
 
 export default ModalHeader;

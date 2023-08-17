@@ -41,6 +41,7 @@ const stylesCust = StyleSheet.create({
     marginBottom: 20,
     backgroundColor: color.white,
     flexDirection: 'row',
+    marginHorizontal: 30,
   },
   articleBody: {flex: 1, padding: 15},
   articleCard: {

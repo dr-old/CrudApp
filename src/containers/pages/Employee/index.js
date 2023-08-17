@@ -10,6 +10,7 @@ import {FormInput} from '../../../components/molecules';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   deleteUserData,
+  updateDetailUserData,
   updateUserData,
 } from '../../../redux/actions/userAction';
 import {showMessage} from 'react-native-flash-message';
@@ -78,6 +79,7 @@ function Employee({route}) {
         description: 'User deleted successfull',
         type: 'success',
       });
+      dispatch(updateDetailUserData({}));
       navigation.goBack();
     }
   }, [userUpdate, dispatch, navigation]);
@@ -155,6 +157,7 @@ function Employee({route}) {
                 solid={true}
                 label="Delete!"
                 size="large"
+                disabled={edit}
                 onClick={() =>
                   openModal('Are you sure to delete this data ?', () => {
                     handleDelete();

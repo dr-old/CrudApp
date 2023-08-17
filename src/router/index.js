@@ -4,7 +4,7 @@ import {createNavigationContainerRef} from '@react-navigation/native';
 import {NavigationContainer} from '@react-navigation/native';
 import DashboardStack from './DashboardStack';
 import {useSelector} from 'react-redux';
-import {Login, Register, Splash} from '../containers/pages';
+import {Login, Splash} from '../containers/pages';
 
 export const navigationRef = createNavigationContainerRef();
 
@@ -21,7 +21,6 @@ function Router() {
   const page = [
     {name: 'Splash', comp: Splash, header: false},
     {name: 'Login', comp: Login, header: false},
-    {name: 'Register', comp: Register, header: false},
   ];
   return (
     <NavigationContainer ref={navigationRef}>

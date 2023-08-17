@@ -19,49 +19,48 @@ function EmployeeAdd() {
   } = useAction();
 
   return (
-    <>
-      <Container
-        bgColor={color.white9}
-        loading={userCreate?.loading}
-        navbar={{
-          type: 'nofixed',
-          title: 'Create User',
-          onClick: () => navigation.goBack(),
-        }}>
-        <Divider height={20} />
-        <View style={stylesCust.groupInput}>
-          <View style={stylesCust.groupItem}>
-            <FormInput
-              label="Name"
-              placeholder="Your first name"
-              type="solid"
-              solid={color.white}
-              value={form?.first_name}
-              onChangeText={value => onChangeText('first_name', value)}
-            />
-          </View>
-          <View style={stylesCust.groupItem}>
-            <FormInput
-              label={' '}
-              placeholder="Your last name"
-              type="solid"
-              solid={color.white}
-              value={form?.last_name}
-              onChangeText={value => onChangeText('last_name', value)}
-            />
-          </View>
-        </View>
-        <View style={stylesCust.card}>
+    <Container
+      bgColor={color.white9}
+      loading={userCreate?.loading}
+      scrollview={false}
+      navbar={{
+        type: 'nofixed',
+        title: 'Create User',
+        onClick: () => navigation.goBack(),
+      }}>
+      <Divider height={20} />
+      <View style={stylesCust.groupInput}>
+        <View style={stylesCust.groupItem}>
           <FormInput
-            label="Jobs"
-            placeholder="Your jobs"
+            label="Name"
+            placeholder="Your first name"
             type="solid"
             solid={color.white}
-            value={form?.job}
-            onChangeText={value => onChangeText('job', value)}
+            value={form?.first_name}
+            onChangeText={value => onChangeText('first_name', value)}
           />
         </View>
-      </Container>
+        <View style={stylesCust.groupItem}>
+          <FormInput
+            label={' '}
+            placeholder="Your last name"
+            type="solid"
+            solid={color.white}
+            value={form?.last_name}
+            onChangeText={value => onChangeText('last_name', value)}
+          />
+        </View>
+      </View>
+      <View style={stylesCust.card}>
+        <FormInput
+          label="Jobs"
+          placeholder="Your jobs"
+          type="solid"
+          solid={color.white}
+          value={form?.job}
+          onChangeText={value => onChangeText('job', value)}
+        />
+      </View>
       <View style={stylesCust.footer}>
         <ButtonLabel
           type="success-second"
@@ -80,7 +79,7 @@ function EmployeeAdd() {
           onClick={() => handleSubmit()}
         />
       </View>
-    </>
+    </Container>
   );
 }
 

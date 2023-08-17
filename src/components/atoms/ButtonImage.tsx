@@ -1,26 +1,47 @@
 import React from 'react';
-import {StyleSheet, Image, TouchableOpacity, Text, View} from 'react-native';
-import {color, styles} from '../../utils/styles';
+import {
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Text,
+  View,
+  ViewStyle,
+  ImageSourcePropType,
+} from 'react-native';
+import {color, styles as utilsStyles} from '../../utils/styles';
 import Divider from './Divider';
 
-function ButtonImage({image, onClick, style, label, labelColor}) {
+interface ButtonImageProps {
+  image: ImageSourcePropType;
+  onClick?: () => void;
+  style?: ViewStyle;
+  label?: string;
+  labelColor?: string;
+}
+
+const ButtonImage: React.FC<ButtonImageProps> = ({
+  image,
+  onClick,
+  style,
+  label,
+  labelColor,
+}) => {
   return (
     <TouchableOpacity onPress={onClick} style={stylesCust.button}>
       <View style={style ? style : stylesCust.buttonImage}>
         <Image source={image} style={stylesCust.image} />
       </View>
-      {label ? (
+      {label && (
         <>
           <Divider height={3} />
-          <Text
-            style={styles.p7(labelColor ? labelColor : color.bluep, 'center')}>
+          <Text style={utilsStyles.p7(labelColor || color.bluep, 'center')}>
             {label}
           </Text>
         </>
-      ) : null}
+      )}
     </TouchableOpacity>
   );
-}
+};
 
 const stylesCust = StyleSheet.create({
   button: {

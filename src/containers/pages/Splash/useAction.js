@@ -5,7 +5,7 @@ import {Dimensions} from 'react-native';
 const useAction = () => {
   const navigation = useNavigation();
   const [page, setPage] = useState(0);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(10);
   const {width, height} = Dimensions.get('window');
   const slides = [
     {
@@ -34,8 +34,8 @@ const useAction = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (counter < 10) {
-        setCounter(counter + 1);
+      if (counter > 0) {
+        setCounter(counter - 1);
       } else {
         navigation.replace('Login');
       }
