@@ -92,6 +92,12 @@ const stylesCust = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 20,
   },
+  groupInput: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  groupItem: {width: '47%'},
 });
 
 export default stylesCust;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import {styles, color} from '../../utils/styles';
+import {color} from '../../utils/styles';
 
 function InputText({
   myHeight,
@@ -23,6 +23,7 @@ function InputText({
   return (
     <TextInput
       style={stylesCust.input(
+        disabled ? color.tgrey : color.tblack,
         textRight,
         multiline ? 'top' : 'center',
         myHeight,
@@ -48,14 +49,19 @@ function InputText({
 }
 
 const stylesCust = StyleSheet.create({
-  input: (textRight = 'left', textAlignVertical = 'center', height = 40) => ({
+  input: (
+    clr,
+    textRight = 'left',
+    textAlignVertical = 'center',
+    height = 40,
+  ) => ({
     fontFamily: 'Poppins-Regular',
     fontSize: 12,
     flex: 1,
     paddingVertical: 10,
     height: height,
     textAlign: textRight,
-    color: color.tblack,
+    color: clr,
     textAlignVertical: textAlignVertical,
   }),
 });
