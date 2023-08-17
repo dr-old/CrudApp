@@ -20,6 +20,18 @@ function* loginUser({payload}) {
   }
 }
 
+function* insertUser({payload}) {
+  const response = yield call(postApiFake, payload);
+  if (response?.id) {
+    yield put({
+      type: types.USER_SUCCESS,
+      payload: {data: response, message: 'User created successfull'},
+    });
+  } else {
+    yield put({type: types.USER_FAILURE, payload: {message: response.error}});
+  }
+}
+
 function* updateUser({payload}) {
   const response = yield call(putApiFake, payload);
   if (response?.name) {
@@ -74,7 +86,7 @@ function* listUser({payload}) {
 }
 
 export default function* userSaga() {
-  // yield takeLatest(types.INSERT_USER, insertUser);
+  yield takeLatest(types.INSERT_USER, insertUser);
   yield takeLatest(types.UPDATE_USER, updateUser);
   yield takeLatest(types.DELETE_USER, deleteUser);
   yield takeLatest(types.GET_LOGIN, loginUser);

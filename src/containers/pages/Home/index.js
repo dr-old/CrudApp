@@ -25,7 +25,7 @@ const Home = () => {
         type: 'home',
         title: `${user.data?.firstName} ${user.data?.lastName}`,
         onSearch: () => console.log(1),
-        onCart: () => console.log(2),
+        onCart: () => navigation.push('EmployeeAdd'),
       }}>
       <View style={styles.container}>
         <FlatList
