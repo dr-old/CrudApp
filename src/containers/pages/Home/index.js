@@ -7,6 +7,7 @@ import {color} from '../../../utils/styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import {updateDetailUserData} from '../../../redux/actions/userAction';
+import {helpers} from '../../../utils';
 // Import other components and dependencies as needed
 
 const Home = () => {
@@ -38,7 +39,7 @@ const Home = () => {
               }}
             />
           )}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => `${helpers.getUid()}_${item.id.toString()}`}
           onEndReached={loadMore}
           onEndReachedThreshold={0.1}
           refreshing={users.loading}

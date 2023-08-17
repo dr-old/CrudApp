@@ -87,11 +87,7 @@ const stylesCust = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   bottom: {marginHorizontal: 30, flex: 1},
-  footer: {
-    backgroundColor: color.white,
-    paddingHorizontal: 30,
-    paddingVertical: 20,
-  },
+  footer: {marginHorizontal: 30, marginVertical: 20},
   groupInput: {
     flex: 1,
     flexDirection: 'row',

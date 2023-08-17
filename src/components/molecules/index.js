@@ -16,6 +16,8 @@ import TileOrder from './TileOrder';
 import TilePayment from './TilePayment';
 import TilePaymentHistory from './TilePaymentHistory';
 import TileProduct from './TileProduct';
+import ModalFooter from './ModalFooter';
+import ModalHeader from './ModalHeader';
 
 export {
   FormInput,
@@ -36,4 +38,6 @@ export {
   TilePayment,
   TilePaymentHistory,
   TileEmployee,
+  ModalFooter,
+  ModalHeader,
 };

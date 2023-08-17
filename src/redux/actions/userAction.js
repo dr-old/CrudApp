@@ -17,6 +17,13 @@ export const updateListUserData = users => ({
   payload: users,
 });
 
+export function deleteUserData(data) {
+  return {
+    type: types.DELETE_USER,
+    payload: data,
+  };
+}
+
 export function insertUserData(data) {
   return {
     type: types.INSERT_USER,
