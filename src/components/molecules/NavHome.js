@@ -47,7 +47,7 @@ function NavHome({
             <ButtonIcon
               type={stylesCust.buttonType()}
               onClick={onCart}
-              name="bell"
+              name="plus"
               size={20}
             />
           </View>

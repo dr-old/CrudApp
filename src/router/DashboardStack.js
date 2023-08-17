@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Setting, Home, Employee} from '../containers/pages';
+import {Setting, Home, Employee, EmployeeAdd} from '../containers/pages';
 
 const Stack = createNativeStackNavigator();
 
@@ -9,6 +9,7 @@ function DashboardStack() {
     {name: 'Home', comp: Home, header: false},
     {name: 'Setting', comp: Setting, header: false},
     {name: 'Employee', comp: Employee, header: false},
+    {name: 'EmployeeAdd', comp: EmployeeAdd, header: false},
   ];
 
   return (
