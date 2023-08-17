@@ -51,3 +51,13 @@ export const putApiFake = async payload => {
     return err.response.data;
   }
 };
+
+export const deleteApiFake = async payload => {
+  try {
+    const response = await axiosFake.delete(payload.link, payload.data);
+    return response.data;
+  } catch (err) {
+    console.log(err.response.data);
+    return err.response.data;
+  }
+};

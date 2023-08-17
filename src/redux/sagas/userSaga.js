@@ -1,6 +1,11 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
 import {types} from '../actions/types';
-import {getApiFake, postApiFake, putApiFake} from '../apis/baseApi';
+import {
+  deleteApiFake,
+  getApiFake,
+  postApiFake,
+  putApiFake,
+} from '../apis/baseApi';
 import {updateDetailUserData, updateListUserData} from '../actions/userAction';
 
 function* loginUser({payload}) {
@@ -29,6 +34,12 @@ function* updateUser({payload}) {
   } else {
     yield put({type: types.USER_FAILURE, payload: {message: response.error}});
   }
+}
+
+function* deleteUser({payload}) {
+  const response = yield call(deleteApiFake, payload);
+  console.log('deleteUser', response);
+  yield put(updateDetailUserData({...response, delete: true}));
 }
 
 function* detailUser({payload}) {
@@ -65,6 +76,7 @@ function* listUser({payload}) {
 export default function* userSaga() {
   // yield takeLatest(types.INSERT_USER, insertUser);
   yield takeLatest(types.UPDATE_USER, updateUser);
+  yield takeLatest(types.DELETE_USER, deleteUser);
   yield takeLatest(types.GET_LOGIN, loginUser);
   yield takeLatest(types.GET_LIST_USER, listUser);
   yield takeLatest(types.GET_DETAIL_USER, detailUser);

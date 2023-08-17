@@ -23,6 +23,12 @@ export default userReducer = (state = initialState, {type, payload}) => {
         loading: true,
       };
 
+    case types.DELETE_USER:
+      return {
+        ...state,
+        loading: true,
+      };
+
     case types.GET_LOGIN:
       return {
         ...state,
