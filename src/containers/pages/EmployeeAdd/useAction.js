@@ -11,6 +11,8 @@ const useAction = () => {
   const userCreate = useSelector(state => state.userReducer);
   const navigation = useNavigation();
 
+  console.log('userCreate', userCreate);
+
   useEffect(() => {
     if (userCreate?.error?.message) {
       showMessage({

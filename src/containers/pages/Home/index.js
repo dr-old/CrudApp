@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {useFetchUsers} from './useFetchUsers';
-import {TileArticle} from '../../../components/molecules';
+import {ErrorMessage, TileArticle} from '../../../components/molecules';
 import {Container} from '../../organism';
 import {color} from '../../../utils/styles';
 import {useDispatch, useSelector} from 'react-redux';
@@ -24,11 +25,13 @@ const Home = () => {
         title: `${user.data?.firstName} ${user.data?.lastName}`,
         onFavorite: () => {
           navigation.push('EmployeeAdd');
+          dispatch({type: 'USER_RESET'});
           dispatch({type: 'CLEAN_FORM_EMPLOYEE'});
         },
         onCart: () => navigation.push('Setting'),
       }}>
       <View style={styles.container}>
+        {/* <Text>{users?.users?.length}</Text> */}
         <FlatList
           data={users.users}
           renderItem={({item, index}) => (
@@ -37,6 +40,12 @@ const Home = () => {
               onClick={() => {
                 navigation.push('Employee', {userId: item.id});
               }}
+            />
+          )}
+          ListEmptyComponent={() => (
+            <ErrorMessage
+              marginVertical={50}
+              message="Data is not found, Please reload again!"
             />
           )}
           keyExtractor={item => `${helpers.getUid()}_${item.id.toString()}`}
