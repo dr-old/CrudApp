@@ -1,8 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {Dimensions} from 'react-native';
+import {useSelector} from 'react-redux';
 
 const useAction = () => {
+  const user = useSelector(state => state.generalReducer.user);
   const navigation = useNavigation();
   const [page, setPage] = useState(0);
   const [counter, setCounter] = useState(10);
@@ -38,7 +40,9 @@ const useAction = () => {
 
   const navigateToLogin = async () => {
     const wait = time => new Promise(resolve => setTimeout(resolve, time));
-    return wait(2000).then(() => navigation.replace('Login'));
+    return wait(2000).then(() =>
+      navigation.replace(user?.token ? 'Home' : 'Login'),
+    );
   };
 
   const onScrollEnd = e => {

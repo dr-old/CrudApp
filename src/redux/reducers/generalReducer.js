@@ -145,6 +145,20 @@ export default generalReducer = (state = initialState, action) => {
       };
 
     // REDUCER TODO
+    case 'SETALL_FORM_TODO':
+      return {
+        ...state,
+        formTodo: {
+          ...state.formTodo,
+          title: action.title,
+          description: action.description,
+          reminderStartDate: action.reminderStartDate,
+          reminderEndDate: action.reminderEndDate,
+          reminderStatus: action.reminderStatus,
+        },
+      };
+
+    // REDUCER TODO
     case 'CLEAN_FORM_TODO':
       return {
         ...state,

@@ -34,7 +34,7 @@ const TileArticle: React.FC<TileArticleProps> = ({item, onClick}) => {
           </Text>
           <Divider height={5} />
           <Text style={[styles.p5(color.green4)]}>
-            {moment(item.reminderDate).format('DD MMM YYYY HH:mm')}
+            {moment(item.createdAt).format('DD MMM YYYY HH:mm')}
           </Text>
         </View>
       </View>
