@@ -15,6 +15,8 @@ const Home = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
+  console.log(user);
+
   return (
     <Container
       scrollview={false}
@@ -22,7 +24,7 @@ const Home = () => {
       bgColor={color.white9}
       navbar={{
         type: 'home',
-        title: `${user.data?.firstName} ${user.data?.lastName}`,
+        title: `${user.data?.givenName} ${user.data?.familyName}`,
         onFavorite: () => {
           navigation.push('EmployeeAdd');
           dispatch({type: 'USER_RESET'});

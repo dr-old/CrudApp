@@ -10,6 +10,7 @@ import {updateDetailUserData, updateListUserData} from '../actions/userAction';
 
 function* loginUser({payload}) {
   const response = yield call(postApiFake, payload);
+  console.log('response', response);
   if (response?.token) {
     yield put({
       type: types.USER_SUCCESS,
