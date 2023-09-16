@@ -10,15 +10,15 @@ const Splash = () => {
 
   return (
     <>
-      <BarHeader bgcolor={color.white7} />
+      <BarHeader bgcolor={color.green4} />
       <View style={stylesCust.page}>
         <View style={stylesCust.logoText}>
-          <Text style={styles.h1(color.green4, null, 'textMedium')}>Crud</Text>
-          <Text style={styles.textBase(30, color.green4, 'textLight', 'none')}>
+          <Text style={styles.h1(color.white, null, 'textMedium')}>Crud</Text>
+          <Text style={styles.textBase(30, color.white, 'textLight', 'none')}>
             App
           </Text>
         </View>
-        <Text style={styles.p4(color.tgrey, 'center', 'textMedium')}>
+        <Text style={styles.p4(color.white, 'center')}>
           Copyright by Danni Ramdan
         </Text>
       </View>

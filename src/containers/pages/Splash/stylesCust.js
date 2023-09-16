@@ -4,7 +4,7 @@ import {color, styles} from '../../../utils/styles';
 const stylesCust = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: color.white7,
+    backgroundColor: color.green4,
     justifyContent: 'center',
   },
   logoText: {

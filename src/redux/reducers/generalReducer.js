@@ -12,6 +12,13 @@ const initialState = {
     data: {},
   },
   transactionList: [],
+  formTodo: {
+    title: '',
+    description: '',
+    reminderStartDate: '',
+    reminderEndDate: '',
+    reminderStatus: '',
+  },
   formEmployee: {
     first_name: '',
     last_name: '',
@@ -125,6 +132,23 @@ export default generalReducer = (state = initialState, action) => {
       return {
         ...state,
         transactionList: action.data,
+      };
+
+    // REDUCER TODO
+    case 'SET_FORM_TODO':
+      return {
+        ...state,
+        formTodo: {
+          ...state.formTodo,
+          [action.inputType]: action.inputValue,
+        },
+      };
+
+    // REDUCER TODO
+    case 'CLEAN_FORM_TODO':
+      return {
+        ...state,
+        formTodo: initialState.formTodo,
       };
 
     // REDUCER EMPLOYEE

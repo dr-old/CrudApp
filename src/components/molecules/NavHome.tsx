@@ -1,31 +1,42 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
 import {ButtonIcon, Divider} from '../atoms';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 interface NavHomeProps {
   title: string;
+  imageProfile?: string;
   onSearch?: () => void;
   onCart: () => void;
   onFavorite?: () => void;
 }
 
-const NavHome: FC<NavHomeProps> = ({title, onSearch, onCart, onFavorite}) => {
+const NavHome: FC<NavHomeProps> = ({
+  title,
+  imageProfile,
+  onSearch,
+  onCart,
+  onFavorite,
+}) => {
   return (
     <View style={stylesCust.navHome}>
       <View style={stylesCust.header}>
         <View style={stylesCust.headerContent}>
-          <View style={stylesCust.imageInit}>
-            <Text
-              style={[
-                styles.textBase(20, color.white, 'textSemiBold', 'uppercase'),
-                // eslint-disable-next-line react-native/no-inline-styles
-                {paddingTop: 5},
-              ]}>
-              DR
-            </Text>
-          </View>
+          {imageProfile ? (
+            <Image source={{uri: imageProfile}} style={stylesCust.imageInit} />
+          ) : (
+            <View style={stylesCust.imageInit}>
+              <Text
+                style={[
+                  styles.textBase(20, color.white, 'textSemiBold', 'uppercase'),
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  {paddingTop: 5},
+                ]}>
+                DR
+              </Text>
+            </View>
+          )}
           <View style={stylesCust.headerLocation}>
             <Text style={styles.p4()}>Welcome</Text>
             <Text style={styles.h5()} numberOfLines={1}>
