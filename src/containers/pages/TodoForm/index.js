@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import firestore from '@react-native-firebase/firestore';
+import * as AddCalendarEvent from 'react-native-add-calendar-event';
 import {ButtonIcon, ButtonLabel, Divider} from '../../../components/atoms';
 import {FormInput} from '../../../components/molecules';
 import {color, styles} from '../../../utils/styles';
@@ -12,7 +13,13 @@ import moment from 'moment';
 import {useDispatch} from 'react-redux';
 import {showMessage} from 'react-native-flash-message';
 
-function TodoAdd() {
+const utcDateToString = momentInUTC => {
+  let s = moment.utc(momentInUTC).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');
+  return s;
+};
+
+function TodoForm({route}) {
+  const {data, edit} = route.params;
   const todosCollection = firestore().collection('todos');
   const {navigation, userCreate, form, handleValidate, onChangeText} =
     useAction();
@@ -27,10 +34,61 @@ function TodoAdd() {
     value: twoHoursLater,
     show: false,
   });
-  const [reminder, setReminder] = useState(false);
+  const [reminder, setReminder] = useState(data.reminderStatus || false);
   const [editingTodo, setEditingTodo] = useState(null);
 
-  const addTodo = () => {
+  useEffect(() => {
+    unsubscribe();
+  }, []);
+
+  const unsubscribe = () => {
+    if (edit) {
+      dispatch({
+        type: 'SETALL_FORM_TODO',
+        title: data.title,
+        description: data.description,
+      });
+      setEditingTodo(data);
+      setReminder(data.reminderStatus);
+      setEndDate({show: false, value: data.reminderEndDate});
+      setStartDate({show: false, value: data.reminderStartDate});
+    }
+  };
+
+  function addToCalendar() {
+    const eventConfig = {
+      title: form.title,
+      startDate: utcDateToString(startDate.value),
+      endDate: utcDateToString(endDate.value),
+      notes: form.description,
+      navigationBarIOS: {
+        tintColor: 'orange',
+        backgroundColor: 'green',
+        titleColor: 'blue',
+      },
+    };
+
+    AddCalendarEvent.presentEventCreatingDialog(eventConfig)
+      .then(event => {
+        console.log('event', event);
+        if (event?.action === 'SAVED') {
+          addTodo(event.calendarItemIdentifier);
+        }
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
+  }
+
+  const handleSave = () => {
+    if (reminder) {
+      addToCalendar();
+    } else {
+      addTodo();
+    }
+  };
+
+  const addTodo = eventCalendar => {
     if (editingTodo) {
       // Update an existing todo in Firestore
       todosCollection
@@ -38,9 +96,10 @@ function TodoAdd() {
         .update({
           title: form.title,
           description: form.description,
-          reminderStartDate: startDate.value,
-          reminderEndDate: endDate.value,
+          reminderStartDate: new Date(startDate?.value).toISOString(),
+          reminderEndDate: new Date(endDate?.value).toISOString(),
           reminderStatus: reminder,
+          reminderInfo: eventCalendar || null,
           updatedAt: new Date().toISOString(),
         })
         .then(() => {
@@ -49,6 +108,7 @@ function TodoAdd() {
             description: 'Todo updated successfully',
             type: 'success',
           });
+          navigation.replace('Home');
         })
         .catch(error => {
           console.error('Error updating todo:', error);
@@ -61,23 +121,26 @@ function TodoAdd() {
 
       setEditingTodo(null); // Clear editing state
     } else {
-      // Add a new todo to Firestore with additional fields
+      const payload = {
+        title: form.title,
+        description: form.description,
+        reminderStartDate: new Date(startDate?.value).toISOString(),
+        reminderEndDate: new Date(endDate?.value).toISOString(),
+        reminderStatus: reminder,
+        reminderInfo: eventCalendar || null,
+        createdAt: new Date().toISOString(),
+        updatedAt: null,
+      };
+      console.log('payload', payload);
       todosCollection
-        .add({
-          title: form.title,
-          description: form.description,
-          reminderStartDate: startDate.value,
-          reminderEndDate: endDate.value,
-          reminderStatus: reminder,
-          createdAt: new Date().toISOString(),
-          updatedAt: null,
-        })
+        .add(payload)
         .then(() => {
           showMessage({
             message: 'Success',
             description: 'Todo added successfully',
             type: 'success',
           });
+          navigation.replace('Home');
         })
         .catch(error => {
           console.error('Error updating todo:', error);
@@ -88,16 +151,16 @@ function TodoAdd() {
           });
         });
     }
-    dispatch({type: 'CLEAN_FORM_TODO'});
-    setReminder(null);
-    setStartDate({
-      value: currentDate,
-      show: false,
-    });
-    setEndDate({
-      value: twoHoursLater,
-      show: false,
-    });
+    // dispatch({type: 'CLEAN_FORM_TODO'});
+    // setReminder(null);
+    // setStartDate({
+    //   value: currentDate,
+    //   show: false,
+    // });
+    // setEndDate({
+    //   value: twoHoursLater,
+    //   show: false,
+    // });
   };
 
   return (
@@ -107,7 +170,7 @@ function TodoAdd() {
       scrollview={false}
       navbar={{
         type: 'nofixed',
-        title: 'Create To do List',
+        title: `${editingTodo ? 'Edit' : 'Create'} To do List`,
         onClick: () => navigation.goBack(),
       }}>
       <Divider height={20} />
@@ -172,10 +235,10 @@ function TodoAdd() {
         <ButtonLabel
           type="success"
           solid={true}
-          label="Submit"
+          label="Save"
           size="large"
           disabled={!handleValidate()}
-          onClick={() => addTodo()}
+          onClick={() => handleSave()}
         />
       </View>
       <DateTimePickerModal
@@ -184,6 +247,10 @@ function TodoAdd() {
         onConfirm={date => {
           if (startDate.show) {
             setStartDate({value: date.toISOString(), show: false});
+            setEndDate({
+              value: new Date(date.getTime() + 2 * 60 * 60 * 1000),
+              show: false,
+            });
           }
           if (endDate.show) {
             setEndDate({value: date.toISOString(), show: false});
@@ -202,4 +269,4 @@ function TodoAdd() {
   );
 }
 
-export default TodoAdd;
+export default TodoForm;

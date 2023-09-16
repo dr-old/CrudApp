@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const color = {
   tblack: '#404040',
@@ -22,6 +22,7 @@ const color = {
   bluep5: '#6E5DE7',
   bluep6: '#eeecfe',
   bluep7: '#a69bf9',
+  bluep8: '#9b59b6',
   grey: '#bbb',
   grey2: '#666',
   grey3: '#7a7a7a',
@@ -81,6 +82,20 @@ const styles = StyleSheet.create({
   textSemiBoldItalic: {fontFamily: 'Poppins-SemiBoldItalic'},
   textThin: {fontFamily: 'Poppins-Thin'},
   textThinItalic: {fontFamily: 'Poppins-ThinItalic'},
+  textDefault: (
+    size = 12,
+    clr = color.tblack,
+    type = 'textRegular',
+    transform = 'none',
+  ) => [
+    styles[type],
+    {
+      paddingTop: 4,
+      fontSize: size,
+      color: clr,
+      textTransform: transform,
+    },
+  ],
   textBase: (
     size = 13,
     clr = color.tblack,
@@ -89,6 +104,7 @@ const styles = StyleSheet.create({
   ) => [
     styles[type],
     {
+      paddingTop: 4,
       fontSize: size,
       color: clr,
       textTransform: transform,
