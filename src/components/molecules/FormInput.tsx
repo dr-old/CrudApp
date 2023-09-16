@@ -19,6 +19,7 @@ interface FormInputProps extends TextInputProps {
   icon?: {
     name?: string;
     color?: string;
+    size?: number;
     onClick?: () => void;
   };
   autoComplete?:
@@ -111,7 +112,7 @@ const FormInput: FC<FormInputProps> = ({
             }}
             style={stylesCust.inputIcon}
             name={icon.name}
-            size={20}
+            size={icon.size || 20}
             onClick={icon.onClick}
           />
         ) : null}

@@ -6,12 +6,10 @@ import {insertUserData} from '../../../redux/actions/userAction';
 
 const useAction = () => {
   const dispatch = useDispatch();
-  const form = useSelector(state => state.generalReducer.formEmployee);
+  const form = useSelector(state => state.generalReducer.formTodo);
   const user = useSelector(state => state.generalReducer.user);
   const userCreate = useSelector(state => state.userReducer);
   const navigation = useNavigation();
-
-  console.log('userCreate', userCreate);
 
   useEffect(() => {
     if (userCreate?.error?.message) {
@@ -34,11 +32,11 @@ const useAction = () => {
   }, [dispatch, userCreate]);
 
   const onChangeText = (type, value) => {
-    dispatch({type: 'SET_FORM_EMPLOYEE', inputType: type, inputValue: value});
+    dispatch({type: 'SET_FORM_TODO', inputType: type, inputValue: value});
   };
 
   const handleValidate = () => {
-    if (form?.first_name && form?.last_name && form?.job) {
+    if (form?.title && form?.description) {
       return true;
     } else {
       return false;

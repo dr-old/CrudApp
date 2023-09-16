@@ -83,6 +83,11 @@ const useAction = () => {
       data: {email: form.email?.toLowerCase(), password: form.password},
     };
     GoogleSignin.signOut();
+    showMessage({
+      message: 'Failed',
+      description: 'Sign in with email or password is inactive',
+      type: 'danger',
+    });
     // dispatch(loginUserData(payload));
   };
 

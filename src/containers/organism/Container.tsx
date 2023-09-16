@@ -67,6 +67,7 @@ const Container: React.FC<ContainerProps> = ({
           {navbar?.type === 'home' ? (
             <NavHome
               title={navbar?.title}
+              imageProfile={navbar?.imageProfile}
               onSearch={navbar?.onSearch}
               onFavorite={navbar?.onFavorite}
               onCart={navbar?.onCart}
@@ -92,6 +93,7 @@ const Container: React.FC<ContainerProps> = ({
           {navbar?.type === 'home' ? (
             <NavHome
               title={navbar?.title}
+              imageProfile={navbar?.imageProfile}
               onSearch={navbar?.onSearch}
               onFavorite={navbar?.onFavorite}
               onCart={navbar?.onCart}
