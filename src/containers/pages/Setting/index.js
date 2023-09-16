@@ -47,6 +47,11 @@ function Setting() {
               subtitle: packageJson.version,
             },
             {
+              icon: 'calendar',
+              label: 'Calendar',
+              onClick: () => navigation.push('Calendar'),
+            },
+            {
               icon: 'power',
               label: 'Logout',
               onClick: () => signOut(),

@@ -18,8 +18,8 @@ const Splash = () => {
             App
           </Text>
         </View>
-        <Text style={styles.h2(color.tblack, 'center', 'textMedium')}>
-          {counter}
+        <Text style={styles.p4(color.tgrey, 'center', 'textMedium')}>
+          Copyright by Danni Ramdan
         </Text>
       </View>
     </>

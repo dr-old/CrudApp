@@ -10,6 +10,7 @@ import {updateDetailUserData, updateListUserData} from '../actions/userAction';
 
 function* loginUser({payload}) {
   const response = yield call(postApiFake, payload);
+  console.log('response', response);
   if (response?.token) {
     yield put({
       type: types.USER_SUCCESS,
@@ -76,7 +77,9 @@ function* detailUser({payload}) {
 function* listUser({payload}) {
   try {
     const response = yield call(getApiFake, payload);
-    yield put(updateListUserData({page: payload.page, data: response.data}));
+    yield put(
+      updateListUserData({page: payload.data.page, data: response.data}),
+    );
   } catch (error) {
     yield put({
       type: types.UPDATE_LIST_USER_RESET,

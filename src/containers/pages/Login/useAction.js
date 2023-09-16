@@ -2,7 +2,8 @@ import {useNavigation} from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {showMessage} from 'react-native-flash-message';
 import {useDispatch, useSelector} from 'react-redux';
-import {loginUserData} from '../../../redux/actions/userAction';
+import {GoogleSignin} from '@react-native-community/google-signin';
+import auth from '@react-native-firebase/auth';
 
 const useAction = () => {
   const dispatch = useDispatch();
@@ -51,12 +52,38 @@ const useAction = () => {
     dispatch({type: 'SET_FORM_LOGIN', inputType: type, inputValue: value});
   };
 
+  // Function to handle Google Sign-In
+  async function handleGoogleSignIn() {
+    try {
+      await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
+      const userInfo = await GoogleSignin.signIn();
+      console.log('userInfo', userInfo);
+      const {idToken} = userInfo;
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      await auth().signInWithCredential(googleCredential);
+      const token = await GoogleSignin.getTokens();
+      showMessage({
+        message: 'Success',
+        description: user.data.message,
+        type: 'success',
+      });
+      dispatch({
+        type: 'SET_USER',
+        token: token.accessToken,
+        user: userInfo.user,
+      });
+    } catch (error) {
+      console.error('Google Sign-In error:', error);
+    }
+  }
+
   const signIn = () => {
     const payload = {
       link: 'login',
       data: {email: form.email?.toLowerCase(), password: form.password},
     };
-    dispatch(loginUserData(payload));
+    GoogleSignin.signOut();
+    // dispatch(loginUserData(payload));
   };
 
   const signInValidate = () => {
@@ -76,6 +103,7 @@ const useAction = () => {
     onChangeText,
     signIn,
     signInValidate,
+    handleGoogleSignIn,
   };
 };
 

@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {FormInput} from '../../../components/molecules';
 import {ButtonLabel, Divider, OptionLabel} from '../../../components/atoms';
 import stylesCust from './stylesCust';
 import useAction from './useAction';
 import {Container} from '../../organism';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Login = () => {
   const {
@@ -17,6 +18,7 @@ const Login = () => {
     onChangeText,
     signIn,
     signInValidate,
+    handleGoogleSignIn,
   } = useAction();
 
   return (
@@ -69,6 +71,18 @@ const Login = () => {
           subtitle="Sign Up"
           // onClick={() => navigation.push('Register')}
         />
+        <Divider height={20} />
+        <TouchableOpacity
+          style={stylesCust.buttonGoogle}
+          onPress={handleGoogleSignIn}>
+          <FontAwesome
+            name="google"
+            size={16}
+            color={color.white}
+            style={{width: 16, height: 16, marginRight: 8}}
+          />
+          <Text style={styles.h5(color.white)}>Continue with Google</Text>
+        </TouchableOpacity>
       </View>
     </Container>
   );

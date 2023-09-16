@@ -33,18 +33,13 @@ const useAction = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (counter > 0) {
-        setCounter(counter - 1);
-      } else {
-        navigation.replace('Login');
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
+    navigateToLogin();
   });
+
+  const navigateToLogin = async () => {
+    const wait = time => new Promise(resolve => setTimeout(resolve, time));
+    return wait(2000).then(() => navigation.replace('Login'));
+  };
 
   const onScrollEnd = e => {
     let pageNumber = Math.min(

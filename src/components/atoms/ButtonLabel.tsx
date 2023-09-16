@@ -77,11 +77,11 @@ const ButtonLabel: React.FC<ButtonLabelProps> = ({
   }
 
   if (size === 'normal') {
-    txstyle = utilsStyles.h4(textcolor, 'center');
+    txstyle = utilsStyles.h5(textcolor, 'center');
   }
 
   if (size === 'large') {
-    txstyle = utilsStyles.h3(textcolor, 'center');
+    txstyle = utilsStyles.h4(textcolor, 'center');
   }
 
   return (

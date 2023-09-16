@@ -22,11 +22,21 @@ export const useFetchUsers = () => {
   const loadMore = () => {
     if (!users.loading) {
       setPage(page + 1);
+      console.log('loadmore');
     }
   };
 
   const reload = () => {
     setPage(1);
+    const payload = {
+      link: 'users',
+      data: {
+        page: 1,
+      },
+    };
+    console.log('payload', payload);
+    dispatch(listUserData(payload));
+    console.log('reload');
   };
 
   return {users, loadMore, reload};
