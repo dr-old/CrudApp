@@ -88,7 +88,9 @@ function TodoDetail({route}) {
         }}>
         <View style={stylesCust.detail}>
           <Text style={styles.h3()}>{data.title}</Text>
-          <Text numberOfLines={2} style={styles.textDefault()}>
+          <Text
+            numberOfLines={2}
+            style={[styles.textDefault(), {textAlign: 'center'}]}>
             {data.description}
           </Text>
           <Text style={styles.h5(color.green4)}>

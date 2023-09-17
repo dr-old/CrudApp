@@ -6,8 +6,6 @@ import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
 import {firebase} from '@react-native-firebase/app';
-import {GoogleSignin} from '@react-native-community/google-signin';
-import messaging from '@react-native-firebase/messaging';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDpPSUdgye3uIkwTqa4v2jOXE-PcX3n4yo',
@@ -23,23 +21,14 @@ const firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
   // Handle background messages using setBackgroundMessageHandler
-  messaging().setBackgroundMessageHandler(async remoteMessage => {
-    console.log('Message handled in the background!', remoteMessage);
-  });
+  // messaging().setBackgroundMessageHandler(async remoteMessage => {
+  //   console.log('Message handled in the background!', remoteMessage);
+  // });
 }
 
 // // Initialize Notifee
 // notifee.onBackgroundEvent(async event => {
 //   console.log('Notifee handled in the background!', event);
 // });
-
-// Initialize Google Sign-In
-GoogleSignin.configure({
-  // scopes: ['https://www.googleapis.com/auth/calendar'],
-  webClientId:
-    '90555709774-q79qqsorlmdrjfoqt8644atcvj8reo4h.apps.googleusercontent.com',
-  // webClientId:
-  //   '802598629686-h1dcd2ds43206goekaflt8cagqvgmr44.apps.googleusercontent.com',
-});
 
 AppRegistry.registerComponent(appName, () => App);

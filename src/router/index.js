@@ -28,20 +28,20 @@ function Router() {
     onNotificationOpenedAppFromQuit,
   } = usePushNotification();
 
-  useEffect(() => {
-    const listenToNotifications = () => {
-      try {
-        getFCMToken();
-        requestUserPermission();
-        onNotificationOpenedAppFromQuit();
-        listenToBackgroundNotifications();
-        listenToForegroundNotifications();
-        onNotificationOpenedAppFromBackground();
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const listenToNotifications = () => {
+    try {
+      getFCMToken();
+      requestUserPermission();
+      onNotificationOpenedAppFromQuit();
+      listenToBackgroundNotifications();
+      listenToForegroundNotifications();
+      onNotificationOpenedAppFromBackground();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  useEffect(() => {
     listenToNotifications();
   }, []);
 

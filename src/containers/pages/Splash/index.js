@@ -1,12 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {BarHeader} from '../../../components/molecules';
 import stylesCust from './stylesCust';
-import useAction from './useAction';
+import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const Splash = () => {
-  const {slides, width, height, page, onScrollEnd, counter} = useAction();
+  const user = useSelector(state => state.generalReducer.user);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigateToLogin();
+  });
+
+  const navigateToLogin = async () => {
+    const wait = time => new Promise(resolve => setTimeout(resolve, time));
+    return wait(2000).then(() => {
+      if (user?.token) {
+        navigation.replace('Home');
+      } else {
+        navigation.replace('Login');
+      }
+    });
+  };
 
   return (
     <>

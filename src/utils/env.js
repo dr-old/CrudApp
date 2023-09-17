@@ -23,6 +23,10 @@ const env = {
     serverKey:
       'AAAAFRWKeU4:APA91bE4JiP251axnJZB4y5uYn-12yv6j65BlEFQs9lDveX6mXxMZKAlwivR_MveR26LmxOOJT-A3wbr-k1YKYnqKkmjnqrbN1L6Do55v6UQWf6v2mrlHzWCWXIJUrh5eRftLd3BthPG',
   },
+  GOOGLE: {
+    CLIENTID:
+      '90555709774-q79qqsorlmdrjfoqt8644atcvj8reo4h.apps.googleusercontent.com',
+  },
 };
 
 export default env;

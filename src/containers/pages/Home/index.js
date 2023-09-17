@@ -21,31 +21,33 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Load todos from Firestore on component mount
     const unsubscribe = todosCollection.onSnapshot(querySnapshot => {
       const newTodos = [];
-      setLoading(true);
       querySnapshot?.forEach(doc => {
-        newTodos.push({
-          id: doc.id,
-          title: doc.data().title,
-          description: doc.data().description,
-          reminderStartDate: doc.data().reminderStartDate,
-          reminderEndDate: doc.data().reminderEndDate,
-          reminderStatus: doc.data().reminderStatus,
-          reminderInfo: doc.data().reminderInfo,
-          createdAt: doc.data().createdAt,
-          updatedAt: doc.data().updatedAt,
-        });
+        if (doc.data().email === user.data.email) {
+          newTodos.push({
+            id: doc.id,
+            title: doc.data().title,
+            description: doc.data().description,
+            reminderStartDate: doc.data().reminderStartDate,
+            reminderEndDate: doc.data().reminderEndDate,
+            reminderStatus: doc.data().reminderStatus,
+            reminderInfo: doc.data().reminderInfo,
+            email: doc.data().email,
+            createdAt: doc.data().createdAt,
+            updatedAt: doc.data().updatedAt,
+          });
+        }
       });
       const sortTodos = newTodos.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
       );
       setTodos(sortTodos);
-      setLoading(false);
     });
 
-    return () => unsubscribe(); // Unsubscribe from Firestore listener on unmount
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
@@ -58,6 +60,7 @@ const Home = () => {
         title: `${user.data?.givenName} ${user.data?.familyName}`,
         imageProfile: `${user.data?.photo}`,
         onFavorite: () => {
+          dispatch({type: 'CLEAN_FORM_TODO'});
           navigation.push('TodoForm', {data: {}, edit: false});
         },
         onCart: () => navigation.push('Setting'),
