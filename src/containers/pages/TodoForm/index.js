@@ -71,18 +71,40 @@ function TodoForm({route}) {
     AddCalendarEvent.presentEventCreatingDialog(eventConfig)
       .then(event => {
         console.log('event', event);
-        if (event?.action === 'SAVED') {
-          addTodo(event.calendarItemIdentifier);
-        }
+        // if (event?.action === 'SAVED') {
+        addTodo(event.calendarItemIdentifier);
+        // }
       })
       .catch(error => {
         console.log('error', error);
       });
   }
 
+  function editCalendarEventWithId() {
+    const eventConfig = {
+      eventId: data.reminderInfo,
+    };
+
+    AddCalendarEvent.presentEventEditingDialog(eventConfig)
+      .then(eventInfo => {
+        console.warn(JSON.stringify(eventInfo));
+        // if (eventInfo?.action === 'SAVED') {
+        addTodo(eventInfo.calendarItemIdentifier);
+        // }
+      })
+      .catch(error => {
+        // handle error such as when user rejected permissions
+        console.warn(error);
+      });
+  }
+
   const handleSave = () => {
     if (reminder) {
-      addToCalendar();
+      if (editingTodo) {
+        editCalendarEventWithId();
+      } else {
+        addToCalendar();
+      }
     } else {
       addTodo();
     }

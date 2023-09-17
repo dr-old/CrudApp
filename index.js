@@ -7,6 +7,7 @@ import App from './App';
 import {name as appName} from './app.json';
 import {firebase} from '@react-native-firebase/app';
 import {GoogleSignin} from '@react-native-community/google-signin';
+import messaging from '@react-native-firebase/messaging';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDpPSUdgye3uIkwTqa4v2jOXE-PcX3n4yo',
@@ -21,9 +22,16 @@ const firebaseConfig = {
 // Initialize Firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+  // Handle background messages using setBackgroundMessageHandler
+  messaging().setBackgroundMessageHandler(async remoteMessage => {
+    console.log('Message handled in the background!', remoteMessage);
+  });
 }
 
-// AIzaSyCAvrollUzKUV0OCfwjBSnEFA1xG612O1Q
+// // Initialize Notifee
+// notifee.onBackgroundEvent(async event => {
+//   console.log('Notifee handled in the background!', event);
+// });
 
 // Initialize Google Sign-In
 GoogleSignin.configure({

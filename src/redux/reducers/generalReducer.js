@@ -8,6 +8,7 @@ const initialState = {
   cartList: [],
   userList: [],
   user: {
+    tokenFirebase: null,
     token: null,
     data: {},
   },
@@ -106,18 +107,32 @@ export default generalReducer = (state = initialState, action) => {
         favoriteList: action.favorite,
       };
 
+    // REDUCER TODO
+    case 'SET_USER_AUTH':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          [action.inputType]: action.inputValue,
+        },
+      };
+
     // REDUCER USER
     case 'SET_USER':
       return {
         ...state,
-        user: {token: action.token, data: action.user},
+        user: {
+          tokenFirebase: action.tokenFirebase,
+          token: action.token,
+          data: action.user,
+        },
       };
 
     // REDUCER USER
     case 'SET_USER_CLEAN':
       return {
         ...state,
-        user: {token: null, data: {}},
+        user: {tokenFirebase: null, token: null, data: {}},
       };
 
     // REDUCER USER LIST

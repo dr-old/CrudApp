@@ -19,6 +19,10 @@ const env = {
       Accept: 'application/json',
     },
   },
+  FIREBASE: {
+    serverKey:
+      'AAAAFRWKeU4:APA91bE4JiP251axnJZB4y5uYn-12yv6j65BlEFQs9lDveX6mXxMZKAlwivR_MveR26LmxOOJT-A3wbr-k1YKYnqKkmjnqrbN1L6Do55v6UQWf6v2mrlHzWCWXIJUrh5eRftLd3BthPG',
+  },
 };
 
 export default env;
