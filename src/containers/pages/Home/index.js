@@ -20,6 +20,8 @@ const Home = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
+  console.log(user);
+
   useEffect(() => {
     const unsubscribe = todosCollection.onSnapshot(querySnapshot => {
       const newTodos = [];

@@ -64,7 +64,7 @@ const useAction = () => {
       const token = await GoogleSignin.getTokens();
       showMessage({
         message: 'Success',
-        description: user.data.message,
+        description: 'Login successfull',
         type: 'success',
       });
       dispatch({

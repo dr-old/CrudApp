@@ -10,7 +10,7 @@ import {Container} from '../../organism';
 import stylesCust from './stylesCust';
 import useAction from './useAction';
 import moment from 'moment';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {showMessage} from 'react-native-flash-message';
 
 const utcDateToString = momentInUTC => {
@@ -138,10 +138,11 @@ function TodoForm({route}) {
             description: 'Todo updated successfully',
             type: 'success',
           });
-          // if (data.reminderInfo) {
-          //   editCalendarEventWithId();
-          // }
-          navigation.replace('Home');
+          if (eventCalendar) {
+            editCalendarEventWithId();
+          } else {
+            navigation.replace('Home');
+          }
         })
         .catch(error => {
           console.error('Error updating todo:', error);
