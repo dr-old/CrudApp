@@ -8,9 +8,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import {helpers} from '../../../utils';
 import firestore from '@react-native-firebase/firestore';
+import useNotifee from '../../../config/useNotifee';
 
 const Home = () => {
   // const {users, loadMore, reload} = useFetchUsers();
+  const {onCreateTriggerNotification} = useNotifee();
   const user = useSelector(state => state.generalReducer.user);
   const todosCollection = firestore().collection('todos');
   const [loading, setLoading] = useState(false);

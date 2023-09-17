@@ -4,6 +4,7 @@ import ButtonLabel from './ButtonLabel';
 import ButtonLabelIcon from './ButtonLabelIcon';
 import Divider from './Divider';
 import InputText from './InputText';
+import Notification from './Notification';
 import OptionLabel from './OptionLabel';
 
 export {
@@ -14,4 +15,5 @@ export {
   InputText,
   OptionLabel,
   ButtonLabelIcon,
+  Notification,
 };

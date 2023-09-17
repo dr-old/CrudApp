@@ -3,13 +3,16 @@ import {TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
 import {ButtonIcon, Divider} from '../atoms';
 import moment from 'moment';
+import Scheduler from '../atoms/Scheduler';
+import usePushNotification from '../../config/useNotification';
 
 interface TileArticleProps {
   item: {
     id: number;
     title: string;
     description: string;
-    reminderDate: string;
+    reminderStartDate: string;
+    reminderEndDate: string;
     reminderStatus: string;
     createdAt: string;
     updatedAt: string;
@@ -18,27 +21,44 @@ interface TileArticleProps {
 }
 
 const TileArticle: React.FC<TileArticleProps> = ({item, onClick}) => {
+  const {onSendFcm} = usePushNotification();
+  const handleScheduledTask = () => {
+    onSendFcm({title: item.title, body: item.description});
+    console.log('Scheduled task executed!');
+  };
+  console.log(item);
+  // Schedule the task for a specific date and time
+  const scheduledTime = new Date(item.reminderStartDate); // Replace with your desired schedule time
+
+  scheduledTime.setMinutes(scheduledTime.getMinutes() - 5);
+  console.log(moment(scheduledTime).format('YYYY-MM-DD HH:mm'));
   return (
-    <TouchableOpacity onPress={onClick} style={stylesCust.article}>
-      <View style={stylesCust.articleBody}>
-        <ButtonIcon type={stylesCust.buttonType} name="calendar" size={20} />
-        <Divider width={10} height={0} />
-        <View style={stylesCust.articleCardText}>
-          <Text style={[styles.h5()]} numberOfLines={2}>
-            {item.title}
-          </Text>
-          <Text
-            numberOfLines={2}
-            style={[styles.textBase(12, color.tgrey, 'textRegular', 'none')]}>
-            {item.description}
-          </Text>
-          <Divider height={5} />
-          <Text style={[styles.p5(color.green4)]}>
-            {moment(item.createdAt).format('DD MMM YYYY HH:mm')}
-          </Text>
+    <>
+      <Scheduler
+        scheduledTime={scheduledTime}
+        onSchedule={handleScheduledTask}
+      />
+      <TouchableOpacity onPress={onClick} style={stylesCust.article}>
+        <View style={stylesCust.articleBody}>
+          <ButtonIcon type={stylesCust.buttonType} name="calendar" size={20} />
+          <Divider width={10} height={0} />
+          <View style={stylesCust.articleCardText}>
+            <Text style={[styles.h5()]} numberOfLines={2}>
+              {item.title}
+            </Text>
+            <Text
+              numberOfLines={2}
+              style={[styles.textBase(12, color.tgrey, 'textRegular', 'none')]}>
+              {item.description}
+            </Text>
+            <Divider height={5} />
+            <Text style={[styles.p5(color.green4)]}>
+              {moment(item.createdAt).format('DD MMM YYYY HH:mm')}
+            </Text>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </>
   );
 };
 
