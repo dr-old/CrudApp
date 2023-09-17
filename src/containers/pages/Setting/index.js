@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {Container, SettingList} from '../../organism';
 import packageJson from '../../../../package.json';
@@ -21,18 +21,18 @@ function Setting() {
       }}>
       {user?.data ? (
         <View style={stylesCust.user}>
-          {/* <Image
-            source={{uri: login.user.photo}}
+          <Image
+            source={{uri: user.data?.photo}}
             style={stylesCust.userImage}
-          /> */}
-          <View style={stylesCust.userPhoto}>
+          />
+          {/* <View style={stylesCust.userPhoto}>
             <Text
               style={stylesCust.initPhoto}>{`${user?.data?.firstName?.charAt(
               0,
             )}${user?.data?.lastName?.charAt(0)}`}</Text>
-          </View>
+          </View> */}
           <Text
-            style={styles.h3()}>{`${user?.data?.firstName} ${user?.data?.lastName}`}</Text>
+            style={styles.h3()}>{`${user.data?.givenName} ${user.data?.familyName}`}</Text>
           <Text style={stylesCust.userEmail}>{user?.data?.email}</Text>
           {/* <Text style={stylesCust.userEmail}>{user?.token}</Text> */}
         </View>
@@ -46,11 +46,11 @@ function Setting() {
               label: 'Version',
               subtitle: packageJson.version,
             },
-            {
-              icon: 'calendar',
-              label: 'Calendar',
-              onClick: () => navigation.push('Calendar'),
-            },
+            // {
+            //   icon: 'calendar',
+            //   label: 'Calendar',
+            //   onClick: () => navigation.push('Calendar'),
+            // },
             {
               icon: 'power',
               label: 'Logout',

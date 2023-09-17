@@ -40,9 +40,13 @@ const useAction = () => {
 
   const navigateToLogin = async () => {
     const wait = time => new Promise(resolve => setTimeout(resolve, time));
-    return wait(2000).then(() =>
-      navigation.replace(user?.token ? 'Home' : 'Login'),
-    );
+    return wait(2000).then(() => {
+      if (user?.token) {
+        navigation.replace('Home');
+      } else {
+        navigation.replace('Login');
+      }
+    });
   };
 
   const onScrollEnd = e => {

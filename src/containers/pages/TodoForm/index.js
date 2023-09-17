@@ -20,6 +20,7 @@ const utcDateToString = momentInUTC => {
 
 function TodoForm({route}) {
   const {data, edit} = route.params;
+  const user = useSelector(state => state.generalReducer.user);
   const todosCollection = firestore().collection('todos');
   const {navigation, userCreate, form, handleValidate, onChangeText} =
     useAction();
@@ -70,7 +71,7 @@ function TodoForm({route}) {
 
     AddCalendarEvent.presentEventCreatingDialog(eventConfig)
       .then(event => {
-        console.log('event', event);
+        console.log('add', JSON.stringify(event));
         // if (event?.action === 'SAVED') {
         addTodo(event.calendarItemIdentifier);
         // }
@@ -87,9 +88,9 @@ function TodoForm({route}) {
 
     AddCalendarEvent.presentEventEditingDialog(eventConfig)
       .then(eventInfo => {
-        console.warn(JSON.stringify(eventInfo));
+        console.warn('edit', JSON.stringify(eventInfo));
         // if (eventInfo?.action === 'SAVED') {
-        addTodo(eventInfo.calendarItemIdentifier);
+        // addTodo(eventInfo.calendarItemIdentifier);
         // }
       })
       .catch(error => {
@@ -101,7 +102,11 @@ function TodoForm({route}) {
   const handleSave = () => {
     if (reminder) {
       if (editingTodo) {
-        editCalendarEventWithId();
+        if (data?.reminderInfo) {
+          addTodo(data.reminderInfo);
+        } else {
+          addToCalendar();
+        }
       } else {
         addToCalendar();
       }
@@ -112,24 +117,30 @@ function TodoForm({route}) {
 
   const addTodo = eventCalendar => {
     if (editingTodo) {
+      const payload = {
+        title: form.title,
+        description: form.description,
+        reminderStartDate: new Date(startDate?.value).toISOString(),
+        reminderEndDate: new Date(endDate?.value).toISOString(),
+        reminderStatus: reminder,
+        reminderInfo: eventCalendar || null,
+        email: user.data.email,
+        updatedAt: new Date().toISOString(),
+      };
+      console.log('edit payload', payload);
       // Update an existing todo in Firestore
       todosCollection
         .doc(editingTodo.id)
-        .update({
-          title: form.title,
-          description: form.description,
-          reminderStartDate: new Date(startDate?.value).toISOString(),
-          reminderEndDate: new Date(endDate?.value).toISOString(),
-          reminderStatus: reminder,
-          reminderInfo: eventCalendar || null,
-          updatedAt: new Date().toISOString(),
-        })
+        .update(payload)
         .then(() => {
           showMessage({
             message: 'Success',
             description: 'Todo updated successfully',
             type: 'success',
           });
+          // if (data.reminderInfo) {
+          //   editCalendarEventWithId();
+          // }
           navigation.replace('Home');
         })
         .catch(error => {
@@ -149,7 +160,8 @@ function TodoForm({route}) {
         reminderStartDate: new Date(startDate?.value).toISOString(),
         reminderEndDate: new Date(endDate?.value).toISOString(),
         reminderStatus: reminder,
-        reminderInfo: eventCalendar || null,
+        reminderInfo: reminder ? eventCalendar : null,
+        email: user.data.email,
         createdAt: new Date().toISOString(),
         updatedAt: null,
       };
@@ -162,6 +174,7 @@ function TodoForm({route}) {
             description: 'Todo added successfully',
             type: 'success',
           });
+          // addToCalendar();
           navigation.replace('Home');
         })
         .catch(error => {

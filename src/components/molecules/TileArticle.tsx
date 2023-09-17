@@ -23,7 +23,12 @@ interface TileArticleProps {
 const TileArticle: React.FC<TileArticleProps> = ({item, onClick}) => {
   const {onSendFcm} = usePushNotification();
   const handleScheduledTask = () => {
-    onSendFcm({title: item.title, body: item.description});
+    onSendFcm({
+      title: item.title,
+      body: `${moment(item.reminderStartDate).format('HH:mm')} - ${moment(
+        item.reminderEndDate,
+      ).format('HH:mm')}`,
+    });
     console.log('Scheduled task executed!');
   };
   console.log(item);
